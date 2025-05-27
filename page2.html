@@ -1,0 +1,1708 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DMX - نماذج الدورة</title>
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://unpkg.com https://cdn.jsdelivr.net; img-src 'self' https://images.pexels.com data:; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; connect-src 'self'; media-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="X-Frame-Options" content="DENY"> <!-- Kept for older browsers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=(), usb=(), interest-cohort=()"> <!-- Added interest-cohort=() -->
+    <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
+    <meta http-equiv="Cross-Origin-Embedder-Policy" content="unsafe-none"> <!-- Using unsafe-none for compatibility -->
+    <!-- Note: Strict-Transport-Security (HSTS) and Cross-Origin-Resource-Policy (CORP) should be set via server headers, not meta tags. -->
+    <!-- End Security Headers -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.163.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.163.0/examples/jsm/"
+            }
+        }
+    </script>
+    <style>
+        /* --- Added/Modified Styles for Icon Size & Color --- */
+        /* Header Icons */
+        .social-header a i.fab.fa-instagram,
+        .social-header a i.fab.fa-telegram {
+            font-size: 1.6rem !important; /* Increased size */
+            color: var(--yellow-color) !important; /* Yellow color */
+            transition: transform var(--animation-speed-fast) ease, color var(--animation-speed-fast) ease;
+        }
+        .social-header a:hover i.fab.fa-instagram, /* Keep hover effect */
+        .social-header a:hover i.fab.fa-telegram {
+             color: var(--accent-color) !important; /* Accent color on hover */
+             transform: scale(1.25) rotate(8deg); /* Keep existing hover transform */
+        }
+
+        /* Footer Icons */
+        footer .social-icons a i.fab.fa-instagram,
+        footer .social-icons a i.fab.fa-telegram,
+        .social-footer a i.fab.fa-instagram, /* Include .social-footer if used */
+        .social-footer a i.fab.fa-telegram {
+            font-size: 1.8rem !important; /* Increased size */
+            color: var(--yellow-color) !important; /* Yellow color */
+            transition: color var(--animation-speed-fast) ease, transform var(--animation-speed-fast) ease;
+        }
+         footer .social-icons a:hover i.fab.fa-instagram, /* Keep hover effect */
+         footer .social-icons a:hover i.fab.fa-telegram,
+         .social-footer a:hover i.fab.fa-instagram,
+         .social-footer a:hover i.fab.fa-telegram {
+             color: var(--accent-color) !important; /* Accent color on hover */
+             transform: scale(1.15); /* Keep existing hover transform */
+         }
+
+        /* Mobile Menu Icons */
+        .mobile-menu .social-icons a i.fab.fa-instagram,
+        .mobile-menu .social-icons a i.fab.fa-telegram {
+            font-size: 1.7rem !important; /* Slightly larger size for mobile menu */
+            color: var(--yellow-color) !important; /* Yellow color */
+            transition: transform var(--animation-speed-fast) ease, color var(--animation-speed-fast) ease;
+        }
+        .mobile-menu .social-icons a:hover i.fab.fa-instagram,
+        .mobile-menu .social-icons a:hover i.fab.fa-telegram {
+            color: var(--accent-color) !important; /* Accent color on hover */
+            transform: scale(1.2); /* Keep existing hover transform */
+        }
+        /* --- End Added/Modified Styles --- */
+
+        :root {
+            --primary-color: #3a7bd5; /* Updated primary color */
+            --secondary-color: #00d2ff; /* Updated secondary color */
+            --accent-color: #4ade80; /* Updated accent color */
+            --dark-color: #1f2937; /* Updated dark color */
+            --light-color: #f9fafb; /* Updated light color */
+            --yellow-color: #facc15;
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            --animation-speed-fast: 0.3s;
+            --animation-speed-medium: 0.6s;
+            --animation-speed-slow: 1s;
+            --animation-timing: cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--dark-color), #111827);
+            color: var(--light-color);
+            line-height: 1.7;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header - Modernized */
+        header {
+            background: rgba(20, 28, 42, 0.65); /* Slightly adjusted glass color and opacity */
+            backdrop-filter: blur(25px) saturate(190%);
+            -webkit-backdrop-filter: blur(25px) saturate(190%);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: transform var(--animation-speed-medium) var(--animation-timing), background var(--animation-speed-medium) ease, box-shadow var(--animation-speed-medium) ease;
+            transform: translateY(0);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37); /* Enhanced shadow */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.18); /* Subtle border */
+        }
+
+        header.scrolled {
+             background: rgba(25, 35, 50, 0.8); /* Darker background on scroll */
+             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+        }
+
+        header.hide {
+            transform: translateY(-110%); /* Hide completely */
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 2.5rem; /* Adjusted padding */
+            background: transparent;
+            transition: padding var(--animation-speed-medium) ease;
+            max-width: 1300px; /* Slightly wider container for navbar */
+            margin: 0 auto;
+        }
+
+        .logo h1 {
+            color: var(--light-color);
+            font-size: 1.9rem; /* Slightly larger */
+            transition: transform var(--animation-speed-fast) ease, text-shadow var(--animation-speed-fast) ease;
+            font-weight: 700;
+            letter-spacing: -1px; /* Tighter spacing */
+        }
+
+        .logo h1:hover {
+            transform: scale(1.03) rotate(-2deg); /* Subtle hover */
+            text-shadow: 0 0 20px var(--accent-color);
+        }
+
+        .logo h1 a {
+            color: var(--light-color);
+            text-decoration: none;
+        }
+
+        .social-header {
+            display: flex;
+            gap: 1.2rem; /* Increased gap */
+            margin-left: 2rem;
+        }
+
+        .social-header a {
+            color: rgba(249, 250, 251, 0.8); /* Slightly transparent */
+            font-size: 1.2rem;
+            transition: transform var(--animation-speed-fast) ease, color var(--animation-speed-fast) ease;
+        }
+
+        .social-header a:hover {
+            color: var(--accent-color);
+            transform: scale(1.25) rotate(8deg);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1.8rem; /* Increased gap */
+        }
+
+        .nav-menu li a {
+            color: rgba(249, 250, 251, 0.9); /* Slightly transparent */
+            text-decoration: none;
+            font-weight: 600; /* Slightly bolder */
+            padding: 0.6rem 0.2rem; /* Adjusted padding for underline effect */
+            transition: color var(--animation-speed-fast) ease, text-shadow var(--animation-speed-medium) ease; /* Added text-shadow transition */
+            position: relative;
+            font-size: 1.05rem; /* Slightly larger */
+            overflow: visible; /* Allow underline to show */
+            background: none; /* Remove potential background */
+            border-radius: 0;
+            text-shadow: none; /* Ensure no shadow initially */
+        }
+
+        .nav-menu li a::before {
+            content: '';
+            position: absolute;
+            bottom: -5px; /* Adjusted position */
+            left: 0;
+            width: 0;
+            height: 3px; /* Slightly thicker */
+            /* Use yellow gradient for underline */
+            background: linear-gradient(90deg, var(--yellow-color), #fffacd); /* Yellow gradient (light yellow) */
+            transition: width var(--animation-speed-medium) var(--animation-timing);
+            border-radius: 2px;
+            box-shadow: 0 0 5px rgba(250, 204, 21, 0.5); /* Add glow to underline */
+        }
+
+        .nav-menu li a:hover {
+            color: var(--yellow-color); /* Yellow color on hover */
+            text-shadow: 0 0 10px rgba(250, 204, 21, 0.8); /* Enhanced yellow glow */
+        }
+
+        .nav-menu li a:hover::before {
+            width: 100%; /* Animate underline width */
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001; /* Ensure it's above mobile menu */
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px 0;
+            background-color: var(--light-color);
+            transition: all var(--animation-speed-medium) ease;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none; /* Initially hidden */
+            position: fixed;
+            top: 0;
+            right: -100%; /* Start off-screen */
+            width: 70%;
+            max-width: 300px;
+            height: 100vh;
+            background: rgba(17, 24, 39, 0.9); /* Darker glass */
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            z-index: 999;
+            padding: 6rem 2rem 2rem; /* Padding top to avoid header */
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
+            transition: right var(--animation-speed-medium) var(--animation-timing);
+            border-left: 1px solid var(--glass-border);
+        }
+
+        .mobile-menu.active {
+            right: 0; /* Slide in */
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-menu li {
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateX(20px);
+            animation: mobileMenuItemFadeIn var(--animation-speed-medium) ease forwards;
+        }
+
+        /* Stagger animation for menu items */
+        .mobile-menu.active li:nth-child(1) { animation-delay: 0.1s; }
+        .mobile-menu.active li:nth-child(2) { animation-delay: 0.15s; }
+        .mobile-menu.active li:nth-child(3) { animation-delay: 0.2s; }
+        .mobile-menu.active li:nth-child(4) { animation-delay: 0.25s; }
+        .mobile-menu.active li:nth-child(5) { animation-delay: 0.3s; }
+        .mobile-menu.active li:nth-child(6) { animation-delay: 0.35s; }
+
+        @keyframes mobileMenuItemFadeIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .mobile-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            display: block;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color var(--animation-speed-fast) ease, color var(--animation-speed-fast) ease;
+        }
+
+        .mobile-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--accent-color);
+        }
+
+        .mobile-menu .social-icons {
+            margin-top: 3rem;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: mobileMenuItemFadeIn var(--animation-speed-medium) ease forwards;
+            animation-delay: 0.4s; /* Delay for social icons */
+        }
+
+        .mobile-menu .social-icons a {
+            font-size: 1.5rem;
+            margin: 0 1rem;
+            color: var(--light-color);
+            transition: transform var(--animation-speed-fast) ease, color var(--animation-speed-fast) ease;
+        }
+
+        .mobile-menu .social-icons a:hover {
+            color: var(--accent-color);
+            transform: scale(1.2);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden; /* Hide overflowing animations */
+        }
+
+        .section-bg-overlay::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(17, 24, 39, 0.8); /* Darker overlay */
+            backdrop-filter: blur(8px) saturate(150%);
+            -webkit-backdrop-filter: blur(8px) saturate(150%);
+            z-index: 0;
+        }
+
+        .section-bg-image {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        section .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Course Samples Section */
+        #course-samples {
+            background-image: url('https://images.pexels.com/photos/3586966/pexels-photo-3586966.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            padding-top: 120px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: var(--light-color);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Modern Underline Animation */
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+            transition: width var(--animation-speed-medium) var(--animation-timing);
+        }
+
+        [data-aos="fade-in"].aos-animate .section-header h2::after {
+             width: 80px; /* Animate width on scroll */
+        }
+
+        /* Video Section - Updated for Static Box & Autoplay */
+        .video-container {
+            /* Static gradient background */
+            background: linear-gradient(145deg, rgba(74, 222, 128, 0.6), rgba(58, 123, 213, 0.6)); /* Example gradient using accent/primary */
+            backdrop-filter: blur(18px) saturate(180%);
+            -webkit-backdrop-filter: blur(18px) saturate(180%);
+            border-radius: 16px;
+            padding: 2rem; /* Adjusted padding slightly */
+            margin-bottom: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25); /* Static shadow */
+            transition: none; /* Remove hover transitions */
+            border: 1px solid var(--glass-border);
+            transform: none !important; /* Ensure no transform from AOS or hover */
+        }
+
+        /* Remove hover effect */
+        /* .video-container:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        } */
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* Static shadow */
+            /* cursor: pointer; */ /* Remove pointer cursor if overlay is gone */
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            height: auto; /* Ensure responsiveness */
+            display: block;
+            border-radius: 12px;
+        }
+        
+        /* Remove overlay styles as video will autoplay */
+        /* .video-overlay { ... } */
+        /* .video-overlay.hidden { ... } */
+        /* .play-icon { ... } */
+        /* .video-wrapper:hover .play-icon { ... } */
+        /* .play-text { ... } */
+
+        .video-info h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .video-info p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        /* --- Start: Modern Styles for PowerPoint Benefits Section --- */
+        .powerpoint-benefits-section {
+            background: linear-gradient(145deg, rgba(30, 41, 55, 0.8), rgba(20, 28, 42, 0.9)); /* Consistent dark gradient */
+            backdrop-filter: blur(15px) saturate(160%);
+            -webkit-backdrop-filter: blur(15px) saturate(160%);
+            border-radius: 16px;
+            padding: 3rem 2.5rem; /* Generous padding */
+            margin-top: 3rem; /* Space above */
+            margin-bottom: 3rem; /* Space below */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.07); /* Enhanced shadow */
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .powerpoint-benefits-section::before { /* Subtle top highlight */
+            content: ";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, rgba(var(--yellow-color-rgb, 250, 204, 21), 0.25), transparent); /* Use yellow color */
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        .powerpoint-benefits-section h3 {
+            font-size: 2rem; /* Larger main title */
+            color: var(--light-color);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            display: flex; /* Align icon and text */
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .powerpoint-benefits-section h3 i {
+            font-size: 1.8rem; /* Adjust icon size */
+            color: var(--yellow-color); /* Yellow icon */
+            margin-top: -5px; /* Fine-tune alignment */
+        }
+
+        .powerpoint-benefits-section .intro-text {
+            text-align: center;
+            color: #ced4da; /* Lighter text */
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 800px; /* Limit width */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .powerpoint-benefits-section h4 {
+            font-size: 1.5rem; /* Sub-heading size */
+            color: var(--accent-color); /* Accent color for sub-heading */
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.8rem;
+        }
+
+        .powerpoint-benefits-section h4 i {
+            font-size: 1.3rem;
+            margin-top: -3px;
+        }
+
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+            gap: 1.5rem;
+        }
+
+        .benefits-list li {
+            background: rgba(var(--light-color-rgb, 249, 250, 251), 0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all var(--animation-speed-fast) ease;
+            position: relative;
+            padding-right: 3rem; /* Space for icon */
+            color: #e0e0e0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .benefits-list li:hover {
+            background: rgba(var(--light-color-rgb, 249, 250, 251), 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .benefits-list li::before { /* Custom list icon */
+            content: '\f058'; /* FontAwesome check-circle */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900; /* Solid */
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.4rem;
+            color: var(--accent-color);
+            transition: transform 0.2s ease-out;
+        }
+
+        .benefits-list li:hover::before {
+            transform: translateY(-50%) scale(1.15);
+        }
+
+        .powerpoint-benefits-section .conclusion-text {
+            margin-top: 3rem;
+            padding: 1.5rem;
+            background: linear-gradient(90deg, rgba(var(--primary-color-rgb, 58, 123, 213), 0.2), rgba(var(--secondary-color-rgb, 0, 210, 255), 0.2));
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 500;
+            font-size: 1.1rem;
+            border: 1px solid rgba(var(--secondary-color-rgb, 0, 210, 255), 0.3);
+            box-shadow: 0 0 20px rgba(var(--secondary-color-rgb, 0, 210, 255), 0.15);
+            color: var(--light-color);
+        }
+        /* --- End: Modern Styles for PowerPoint Benefits Section --- */
+
+        /* Course Files Section */
+        .file-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .file-card {
+            /* Modernized background with subtle texture/gradient */
+            background: linear-gradient(140deg, rgba(40, 58, 88, 0.7), rgba(25, 35, 50, 0.85)); /* Darker, sophisticated gradient */
+            backdrop-filter: blur(18px) saturate(160%);
+            -webkit-backdrop-filter: blur(18px) saturate(160%);
+            border-radius: 14px; /* Slightly larger radius */
+            padding: 1.8rem 1.5rem; /* Adjusted padding */
+            text-align: center;
+            transition: all var(--animation-speed-medium) var(--animation-timing);
+            border: 1px solid rgba(255, 255, 255, 0.15); /* Slightly more visible border */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25), inset 0 1px 2px rgba(255, 255, 255, 0.05); /* Softer shadow + inner highlight */
+            overflow: hidden;
+            position: relative; /* For potential pseudo-elements */
+        }
+
+        .file-card::before { /* Optional: Add a subtle top glow */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, rgba(var(--accent-color-rgb, 74, 222, 128), 0.3), transparent); /* Use accent color */
+            opacity: 0;
+            transition: opacity var(--animation-speed-medium) ease;
+        }
+
+        .file-card:hover {
+            transform: translateY(-6px) scale(1.02); /* Slightly less aggressive transform */
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35), inset 0 1px 3px rgba(255, 255, 255, 0.08); /* Enhanced shadow */
+            border-color: rgba(255, 255, 255, 0.25);
+            background: linear-gradient(140deg, rgba(45, 65, 95, 0.8), rgba(30, 40, 55, 0.9)); /* Slightly lighter on hover */
+        }
+
+        .file-card:hover::before {
+            opacity: 1; /* Show glow on hover */
+        }
+
+        .file-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .file-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--light-color);
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all var(--animation-speed-fast) ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 210, 255, 0.3);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 210, 255, 0.4);
+        }
+
+        /* Payment Section */
+        #payment {
+            background-image: url('https://images.pexels.com/photos/1013516/pexels-photo-1013516.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+        }
+
+        .payment-options {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .payment-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-radius: 16px;
+            padding: 2.5rem;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            transition: all var(--animation-speed-medium) var(--animation-timing);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+        }
+
+        .payment-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .payment-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--yellow-color);
+        }
+
+        .payment-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--light-color);
+        }
+
+        .payment-description {
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .payment-btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all var(--animation-speed-fast) ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 210, 255, 0.3);
+        }
+
+        .payment-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 210, 255, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(160deg, rgba(25, 35, 50, 0.75), rgba(17, 24, 39, 0.85)); /* Adjusted gradient */
+            color: #adb5bd; /* Slightly adjusted text color */
+            padding: 5rem 20px 2.5rem;
+            position: relative;
+            overflow: hidden; /* Keep bubbles contained */
+            border-top: 1px solid rgba(255, 255, 255, 0.12); /* Slightly more visible border */
+            margin-top: 5rem; /* More space */
+        }
+
+        .bubbles-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: -180px; /* Start further below */
+            background: rgba(255, 255, 255, 0.06); /* More transparent */
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border-radius: 50%;
+            opacity: 0;
+            animation: riseGlassy 15s infinite ease-in;
+            box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.15), /* Inner glow */
+                        0 0 18px rgba(255, 255, 255, 0.08); /* Outer glow */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* More bubbles with varied styles */
+        .bubble:nth-child(1)  { width: 65px; height: 65px; left: 10%; animation-duration: 18s; animation-delay: 0s; }
+        .bubble:nth-child(2)  { width: 30px; height: 30px; left: 20%; animation-duration: 12s; animation-delay: 1.5s; background: rgba(0, 210, 255, 0.08); }
+        .bubble:nth-child(3)  { width: 50px; height: 50px; left: 35%; animation-duration: 22s; animation-delay: 3s; }
+        .bubble:nth-child(4)  { width: 80px; height: 80px; left: 50%; animation-duration: 16s; animation-delay: 0.5s; background: rgba(74, 222, 128, 0.07); }
+        .bubble:nth-child(5)  { width: 35px; height: 35px; left: 65%; animation-duration: 11s; animation-delay: 2.5s; }
+        .bubble:nth-child(6)  { width: 45px; height: 45px; left: 80%; animation-duration: 19s; animation-delay: 4s; background: rgba(58, 123, 213, 0.09); }
+        .bubble:nth-child(7)  { width: 90px; height: 90px; left: 90%; animation-duration: 25s; animation-delay: 1s; }
+        .bubble:nth-child(8)  { width: 25px; height: 25px; left: 5%;  animation-duration: 14s; animation-delay: 5s; background: rgba(250, 204, 21, 0.06); }
+        .bubble:nth-child(9)  { width: 55px; height: 55px; left: 28%; animation-duration: 17s; animation-delay: 6s; }
+        .bubble:nth-child(10) { width: 40px; height: 40px; left: 55%; animation-duration: 13s; animation-delay: 2s; }
+        .bubble:nth-child(11) { width: 70px; height: 70px; left: 70%; animation-duration: 20s; animation-delay: 3.5s; background: rgba(255, 255, 255, 0.05); }
+        .bubble:nth-child(12) { width: 30px; height: 30px; left: 42%; animation-duration: 10s; animation-delay: 5.5s; }
+
+        @keyframes riseGlassy {
+            0% {
+                transform: translateY(0) scale(0.8) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                 opacity: 0.7; /* Fade in */
+            }
+            50% {
+                transform: translateY(-60vh) scale(1.1) rotate(180deg) translateX(5vw); /* Add horizontal drift */
+                opacity: 0.4;
+            }
+            90% {
+                 opacity: 0.1;
+            }
+            100% {
+                transform: translateY(-110vh) scale(0.7) rotate(360deg) translateX(-5vw);
+                opacity: 0; /* Fade out */
+            }
+        }
+
+        footer .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo h2 a {
+            color: var(--light-color);
+            font-size: 1.8rem;
+            text-decoration: none;
+            transition: color var(--animation-speed-fast), text-shadow var(--animation-speed-fast);
+            font-weight: 700;
+        }
+
+        .footer-logo h2 a:hover {
+            color: var(--accent-color);
+            text-shadow: 0 0 10px var(--accent-color);
+        }
+
+        .footer-logo p {
+            margin-top: 10px;
+            max-width: 300px; /* Limit width */
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            color: var(--light-color);
+            font-weight: 600;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.7rem;
+        }
+
+        .footer-column ul li a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color var(--animation-speed-fast) ease, padding-right var(--animation-speed-fast) ease;
+            position: relative;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--accent-color);
+            padding-right: 10px;
+        }
+
+        .footer-column ul li a::before {
+            content: '›';
+            position: absolute;
+            right: -5px;
+            opacity: 0;
+            transition: all var(--animation-speed-fast) ease;
+            color: var(--accent-color);
+        }
+
+        .footer-column ul li a:hover::before {
+            opacity: 1;
+            right: 0;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+        }
+
+        .footer .social-icons a {
+            font-size: 1.5rem;
+            margin: 0 0.8rem;
+            color: #9ca3af;
+            transition: all var(--animation-speed-fast) ease;
+        }
+
+        .footer .social-icons a:hover {
+            transform: scale(1.2) translateY(-3px);
+            color: var(--accent-color);
+        }
+
+        /* AOS Overrides & Custom Animations */
+        [data-aos] {
+            transition-property: transform, opacity, filter; /* Add filter */
+        }
+
+        [data-aos="fade-up-subtle"] {
+            transform: translateY(40px);
+            opacity: 0;
+            transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        [data-aos="fade-up-subtle"].aos-animate {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        [data-aos="zoom-in-subtle"] {
+            transform: scale(0.9);
+            opacity: 0;
+            transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        [data-aos="zoom-in-subtle"].aos-animate {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        [data-aos="slide-left-subtle"] {
+            transform: translateX(50px);
+            opacity: 0;
+        }
+        [data-aos="slide-left-subtle"].aos-animate {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        [data-aos="slide-right-subtle"] {
+            transform: translateX(-50px);
+            opacity: 0;
+        }
+        [data-aos="slide-right-subtle"].aos-animate {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .nav-menu {
+                gap: 1rem;
+            }
+            .video-section .row {
+                flex-direction: column;
+            }
+            .footer-links {
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+            .nav-menu, .social-header {
+                display: none;
+            }
+            .hamburger {
+                display: block;
+            }
+            .mobile-menu {
+                 display: block; /* Enable mobile menu display logic */
+            }
+            .footer-content, .footer-links {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+            .footer-logo p {
+                margin: 10px auto 0;
+            }
+            .payment-options {
+                flex-direction: column;
+                align-items: center;
+            }
+            .payment-card {
+                max-width: 90%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            section {
+                padding: 3rem 0;
+            }
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+            .video-container, .file-card, .payment-card {
+                padding: 1.5rem;
+                border-radius: 12px; /* Slightly smaller radius */
+            }
+            .file-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+            .footer-column h3 {
+                 font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <div class="logo">
+            <h1><a href="index.html">DMX</a></h1>
+        </div>
+<div class="nav-return-home" style="margin-left: auto; margin-right: 2rem;">
+    <a href="index.html" style="color: var(--yellow-color); text-decoration: none; font-weight: 600; font-size: 1.1rem;"><i class="fas fa-arrow-left" style="margin-left: 8px;"></i> العودة للرئيسية</a>
+</div>
+<div class="social-header">
+            <a href="https://www.instagram.com/dmx_iq?igsh=cWFpbGxvNWdldzd2" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://t.me/in_21g" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="page2.html" class="active">تصاميم الدورة</a></li>
+            <li><a href="#payment">طرق الدفع</a></li>
+        </ul>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+</header>
+
+<div class="mobile-menu">
+    <ul>
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="page2.html">نماذج الدورة</a></li>
+        <li><a href="#payment">طرق الدفع</a></li>
+    </ul>
+    <div class="social-icons">
+        <a href="https://www.instagram.com/dmx_iq?igsh=cWFpbGxvNWdldzd2" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://t.me/in_21g" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+    </div>
+</div>
+
+<!-- Course Samples Section -->
+<section id="course-samples" class="section-bg-image section-bg-overlay"><!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نماذج الدورة - تأثير التدرج اللوني المتحرك</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gradient-colors: linear-gradient(90deg, #3498db, #00bcd4, #4CAF50, #3498db);
+            --gradient-size: 300% 100%;
+            --gradient-animation-duration: 8s;
+            --white: #ffffff;
+            --bg-dark: rgba(255, 255, 255, 0.05);
+            --card-bg: rgba(255, 255, 255, 0.1);
+            --font-size-base: 1.2rem;
+            --font-size-heading: 2rem;
+            --font-size-subtitle: 1.5rem;
+        }
+
+        /* التصميم العام */
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #121212;
+            background-image: radial-gradient(circle at top right, rgba(52, 152, 219, 0.1), transparent 60%),
+                             radial-gradient(circle at bottom left, rgba(76, 175, 80, 0.05), transparent 60%);
+            margin: 0;
+            padding: 0;
+            color: var(--white);
+            line-height: 1.6;
+            font-size: var(--font-size-base);
+        }
+        
+        #course-samples {
+            padding: 50px 0;
+            position: relative;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* تأثير التدرج اللوني المتحرك للنصوص العادية */
+        p, .benefit-item span, .files-description, .files-cta {
+            background-image: var(--gradient-colors);
+            background-size: var(--gradient-size);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradientAnimation var(--gradient-animation-duration) linear infinite;
+        }
+        
+        /* تأثير التدرج اللوني المتحرك للعناوين - كل عنوان بتأثير مختلف */
+        h2, h3, h4 {
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-align: center;
+            position: relative;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        /* تأثير متحرك خاص لكل مستوى عنوان */
+        h2 {
+            background-image: linear-gradient(90deg, #3498db, #00bcd4, #4CAF50, #3498db);
+            background-size: 300% 100%;
+            animation: gradientAnimation 8s linear infinite;
+        }
+        
+        h3 {
+            background-image: linear-gradient(90deg, #00bcd4, #4CAF50, #3498db, #00bcd4);
+            background-size: 300% 100%;
+            animation: gradientAnimation 6s ease-in-out infinite;
+        }
+        
+        h4 {
+            background-image: linear-gradient(90deg, #4CAF50, #3498db, #00bcd4, #4CAF50);
+            background-size: 300% 100%;
+            animation: gradientAnimation 10s ease infinite;
+        }
+        
+        /* خط متدرج تحت العناوين - كل خط بتأثير مختلف */
+        h2::after, h3::after, h4::after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 3px;
+            margin: 15px auto;
+            border-radius: 3px;
+        }
+        
+        h2::after {
+            background-image: linear-gradient(90deg, #3498db, #00bcd4, #4CAF50, #3498db);
+            background-size: 300% 100%;
+            animation: gradientAnimation 8s linear infinite reverse;
+        }
+        
+        h3::after {
+            background-image: linear-gradient(90deg, #00bcd4, #4CAF50, #3498db, #00bcd4);
+            background-size: 300% 100%;
+            animation: gradientAnimation 6s ease-in-out infinite reverse;
+        }
+        
+        h4::after {
+            background-image: linear-gradient(90deg, #4CAF50, #3498db, #00bcd4, #4CAF50);
+            background-size: 300% 100%;
+            animation: gradientAnimation 10s ease infinite reverse;
+        }
+        
+        /* تعديل حجم العناوين */
+        h2 {
+            font-size: var(--font-size-heading);
+            font-weight: 800;
+        }
+        
+        h3 {
+            font-size: calc(var(--font-size-heading) * 0.9);
+            font-weight: 700;
+        }
+        
+        h4 {
+            font-size: calc(var(--font-size-heading) * 0.8);
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: var(--font-size-subtitle);
+            font-weight: 700;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        
+        .description {
+            font-size: 1.4rem;
+            text-align: center;
+        }
+        
+        /* بطاقات المحتوى الموحدة بتأثير زجاجي */
+        .content-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+            padding: 30px;
+            margin: 30px auto;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .content-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        }
+        
+        .content-card::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+        }
+        
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px 0 rgba(31, 38, 135, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .text-box p {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            text-align: center;
+        }
+        
+        /* شبكة الفوائد */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background: var(--bg-dark);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            font-size: 1.4rem;
+        }
+        
+        .benefit-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .check-mark {
+            color: #3498db;
+            font-size: 1.5rem;
+            margin-left: 15px;
+            flex-shrink: 0;
+        }
+        
+        .benefit-title {
+            font-weight: normal;
+        }
+        
+        /* إزالة تأثيرات التكبير للكلمات */
+        .highlight, .highlight-strong {
+            font-weight: normal;
+        }
+        
+        /* العرض الخاص */
+        .special-offer {
+            text-align: center;
+            border: 1px dashed #3498db;
+        }
+        
+        .special-offer p {
+            font-size: 1.6rem;
+        }
+        
+        /* قسم الملفات بتأثير زجاجي */
+        .files-section {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-radius: 16px;
+            padding: 60px 30px;
+            max-width: 800px;
+            margin: 60px auto;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .files-section::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+            opacity: 0.5;
+            z-index: -1;
+        }
+        
+        .files-description {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        
+        .files-cta {
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        /* تأثير التدرج المتحرك */
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        /* تحسينات للأجهزة المحمولة */
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 2rem;
+            }
+            
+            h3 {
+                font-size: 1.7rem;
+            }
+            
+            h4 {
+                font-size: 1.5rem;
+            }
+            
+            .text-box p, .special-offer p {
+                font-size: 1.1rem;
+            }
+            
+            .benefit-item {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section id="course-samples" class="section-bg-overlay">
+        <div class="container">
+            <div class="section-header" data-aos="fade-in">
+                <h2>نماذج الدورة</h2>
+                <p class="subtitle">يمكنك الوصول الى اكثر من 200+ ملف هنا!</p>
+            </div>
+
+
+
+                <div class="content-card">
+                    <h4>أهم فوائد الملفات الجاهزة:</h4>
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <span class="check-mark">✓</span>
+                            <span><span class="benefit-title">توفير الوقت:</span> لست بحاجة لبدء العرض من الصفر.</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="check-mark">✓</span>
+                            <span><span class="benefit-title">تصاميم احترافية:</span> تضمن مظهرًا جذابًا ومتناسقًا للعروض.</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="check-mark">✓</span>
+                            <span><span class="benefit-title">سهولة التعديل:</span> يمكن تخصيص النصوص، الصور، والألوان بما يناسبك.</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="check-mark">✓</span>
+                            <span><span class="benefit-title">تنظيم المحتوى:</span> تساعد في ترتيب الأفكار والمعلومات بشكل منطقي وواضح.</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="check-mark">✓</span>
+                            <span><span class="benefit-title">دعم الهوية البصرية:</span> يمكنك تعديل القالب ليتماشى مع شعارك وألوان مؤسستك.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card special-offer">
+                    <p>
+                        بعد الاشتراك معنا، ستتمكن من الوصول إلى 
+                        <span class="highlight-strong">أكثر من 200+ ملف PowerPoint</span> 
+                        جاهز للتعديل واحترافي، لمساعدتك في تقديم عروض مميزة بسهولة واحترافية.
+                    </p></div>              
+    <div class="file-grid">
+        <!-- File 1 -->
+        <div class="file-card" data-aos="zoom-in-subtle">
+            <div class="file-icon">
+                <i class="fas fa-file-powerpoint"></i>
+            </div>
+            <div class="file-name">Design 1</div>
+            <a href="course_files/design1.pptx" class="download-btn" download>تحميل</a>
+        </div>
+        
+        <!-- File 2 -->
+        <div class="file-card" data-aos="zoom-in-subtle" data-aos-delay="100">
+            <div class="file-icon">
+                <i class="fas fa-file-powerpoint"></i>
+            </div>
+            <div class="file-name">Design 2</div>
+            <a href="course_files/design2.pptx" class="download-btn" download>تحميل</a>
+        </div>
+        
+        <!-- File 3 -->
+        <div class="file-card" data-aos="zoom-in-subtle" data-aos-delay="200">
+            <div class="file-icon">
+                <i class="fas fa-file-powerpoint"></i>
+            </div>
+            <div class="file-name">Design 3</div>
+            <a href="course_files/design3.pptx" class="download-btn" download>تحميل</a>
+        </div>
+        
+        <!-- File 4 -->
+        <div class="file-card" data-aos="zoom-in-subtle" data-aos-delay="300">
+            <div class="file-icon">
+                <i class="fas fa-file-powerpoint"></i>
+            </div>
+            <div class="file-name">Design 4</div>
+            <a href="course_files/design4.pptx" class="download-btn" download>تحميل</a>
+        </div>
+        
+        <!-- File 5 -->
+        <div class="file-card" data-aos="zoom-in-subtle">
+            <div class="file-icon">
+                <i class="fas fa-file-powerpoint"></i>
+            </div>
+            <div class="file-name">Design 5</div>
+            <a href="course_files/design5.pptx" class="download-btn" download>تحميل</a>
+        </div>
+        
+        <!-- File 6 -->
+        <div class="file-card" data-aos="zoom-in-subtle" data-aos-delay="100">
+            <div class="file-icon">
+                <i class="fas fa-file-powerpoint"></i>
+            </div>
+            <div class="file-name">Design 6</div>
+            <a href="course_files/design6.pptx" class="download-btn" download>تحميل</a>
+        </div>
+        
+        <!-- File 7 -->
+        <div class="file-card" data-aos="zoom-in-subtle" data-aos-delay="200">
+            <div class="file-icon">
+                <i class="fas fa-file-powerpoint"></i>
+            </div>
+            <div class="file-name">Design 7</div>
+            <a href="course_files/design7.pptx" class="download-btn" download>تحميل</a>
+        </div>
+        
+        <!-- File 8 -->
+        <div class="file-card" data-aos="zoom-in-subtle" data-aos-delay="300">
+            <div class="file-icon">
+                <i class="fas fa-file-powerpoint"></i>
+            </div>
+            <div class="file-name">Design 8</div>
+            <a href="course_files/design8.pptx" class="download-btn" download>تحميل</a>
+        </div>
+        
+        <!-- File 9 -->
+        <div class="file-card" data-aos="zoom-in-subtle">
+            <div class="file-icon">
+                <i class="fas fa-file-powerpoint"></i>
+            </div>
+            <div class="file-name">Design 9</div>
+            <a href="course_files/design9.pptx" class="download-btn" download>تحميل</a>
+        </div>
+        
+        <!-- File 10 -->
+        <div class="file-card" data-aos="zoom-in-subtle" data-aos-delay="100">
+            <div class="file-icon">
+                <i class="fas fa-file-powerpoint"></i>
+            </div>
+            <div class="file-name">Design 10</div>
+            <a href="course_files/design10.pptx" class="download-btn" download>تحميل</a>
+        </div>
+        
+        <!-- File 11 -->
+        <div class="file-card" data-aos="zoom-in-subtle" data-aos-delay="200">
+            <div class="file-icon">
+                <i class="fas fa-file-powerpoint"></i>
+            </div>
+            <div class="file-name">Design 11</div>
+            <a href="course_files/design11.pptx" class="download-btn" download>تحميل</a>
+        </div>
+        
+        <!-- File 12 -->
+        <div class="file-card" data-aos="zoom-in-subtle" data-aos-delay="300">
+            <div class="file-icon">
+                <i class="fas fa-file-powerpoint"></i>
+            </div>
+            <div class="file-name">Design 12</div>
+            <a href="course_files/design12.pptx" class="download-btn" download>تحميل</a>
+        </div>
+        
+        <!-- File 13 -->
+        <div class="file-card" data-aos="zoom-in-subtle">
+            <div class="file-icon">
+                <i class="fas fa-file-powerpoint"></i>
+            </div>
+            <div class="file-name">design16</div>
+            <a href="course_files/design16.pptx" class="download-btn" download>تحميل</a>
+        </div>
+        
+        <!-- File 14 -->
+        <div class="file-card" data-aos="zoom-in-subtle" data-aos-delay="100">
+            <div class="file-icon">
+                <i class="fas fa-file-powerpoint"></i>
+            </div>
+            <div class="file-name">design17</div>
+            <a href="course_files/design17.pptx" class="download-btn" download>تحميل</a>
+        </div>
+        
+        <!-- File 15 -->
+        <div class="file-card" data-aos="zoom-in-subtle" data-aos-delay="200">
+            <div class="file-icon">
+                <i class="fas fa-file-powerpoint"></i>
+            </div>
+            <div class="file-name">Design 15</div>
+            <a href="course_files/design15.pptx" class="download-btn" download>تحميل</a>
+        </div>
+        
+        <!-- File 16 (مقفل) -->
+        <div class="file-card locked" data-aos="zoom-in-subtle" data-aos-delay="300" style="position: relative;">
+            <div class="file-icon" style="position: relative;">
+                <i class="fas fa-file-powerpoint"></i>
+                <!-- أيقونة القفل -->
+                <i class="fas fa-lock" style="position: absolute; top: 0; right: 0; color: #d9534f; font-size: 14px;"></i>
+            </div>
+            <div class="file-name">+186 ملف </div>
+            <a href="#" class="download-btn disabled" style="pointer-events: none; opacity: 0.5;">تحميل</a>
+        </div>
+    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Payment Section -->
+<section id="payment" class="section-bg-image section-bg-overlay">
+    <div class="container">
+        <div class="section-header" data-aos="fade-in">
+            <h2>طرق الدفع</h2>
+            <p>اختر طريقة الدفع المناسبة لك للاشتراك في الدورة</p>
+        </div>
+        
+        <div class="payment-options">
+            <!-- ZainCash Payment -->
+            <div class="payment-card" data-aos="fade-up-subtle">
+                <div class="payment-icon">
+                    <i class="fas fa-wallet"></i>
+                </div>
+                <h3 class="payment-title">زين كاش</h3>
+                <p class="payment-description">يمكنك الدفع بسهولة عبر تطبيق زين كاش. أرسل المبلغ المطلوب إلى الرقم المخصص وسيتم تفعيل حسابك فوراً بعد التأكد من عملية الدفع.</p>
+                <a href="#" class="payment-btn">الدفع عبر زين كاش</a>
+            </div>
+            
+            <!-- MasterCard Payment -->
+            <div class="payment-card" data-aos="fade-up-subtle" data-aos-delay="200">
+                <div class="payment-icon">
+                    <i class="fab fa-cc-mastercard"></i>
+                </div>
+                <h3 class="payment-title">ماستر كارد</h3>
+                <p class="payment-description">يمكنك الدفع باستخدام بطاقة ماستر كارد بشكل آمن ومضمون. سيتم تفعيل حسابك فوراً بعد إتمام عملية الدفع بنجاح.</p>
+                <a href="#" class="payment-btn">الدفع عبر ماستر كارد</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="bubbles-container">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2><a href="index.html">DMX</a></h2>
+                <p>نقدم دورات احترافية في برامج Microsoft Office لمساعدتك على تطوير مهاراتك وتحسين إنتاجيتك.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="page2.html">نماذج الدورة</a></li>
+                        <li><a href="#payment">طرق الدفع</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>تواصل معنا</h3>
+                    <ul>
+                        <li><a href="https://www.instagram.com/dmx_iq?igsh=cWFpbGxvNWdldzd2" target="_blank">انستغرام</a></li>
+                        <li><a href="https://t.me/in_21g" target="_blank">تيليجرام</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>جميع الحقوق محفوظة &copy; 2025 DMX</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    // Initialize AOS
+    AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100
+    });
+
+    // Header scroll effect
+    const header = document.querySelector('header');
+    let lastScrollY = 0;
+
+    window.addEventListener('scroll', () => {
+        const currentScrollY = window.scrollY;
+        
+        if (currentScrollY > 100) {
+            header.classList.add('scrolled');
+            
+            if (currentScrollY > lastScrollY && currentScrollY > 300) {
+                header.classList.add('hide');
+            } else {
+                header.classList.remove('hide');
+            }
+        } else {
+            header.classList.remove('scrolled');
+        }
+        
+        lastScrollY = currentScrollY;
+    });
+
+    // Mobile menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+    });
+
+    // Set video playback rate
+    document.addEventListener('DOMContentLoaded', function() {
+        const videos = document.querySelectorAll('video');
+        videos.forEach(video => {
+            video.playbackRate = 1.5;
+        });
+    });
+</script>
+<script src="js/security.js"></script>
+</body>
+</html>

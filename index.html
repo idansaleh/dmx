@@ -1,0 +1,2246 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DMX - دورة بوربوينت الاحترافية</title>
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://unpkg.com https://cdn.jsdelivr.net https://formspree.io; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://unpkg.com https://cdn.jsdelivr.net; img-src 'self' https://images.pexels.com data:; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; connect-src 'self' https://formspree.io; media-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formspree.io;">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=(), usb=(), interest-cohort=()">
+    <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
+    <meta http-equiv="Cross-Origin-Embedder-Policy" content="unsafe-none">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        /* --- Added/Modified Styles for Module Icons --- */
+        .module-title i,
+        .feature-box i {
+            color: var(--primary-color) !important; /* Blue color */
+            transition: transform var(--animation-speed-fast) ease, color var(--animation-speed-fast) ease;
+        }
+
+        .module:hover .module-title i,
+        .feature-box:hover i {
+            color: var(--secondary-color) !important; /* Lighter blue on hover */
+            transform: scale(1.15) rotate(5deg); /* Slight rotation on hover */
+        }
+
+        .feature-box li::before {
+            color: var(--primary-color) !important; /* Blue checkmark */
+        }
+
+        .feature-box li:hover::before {
+            color: var(--secondary-color) !important; /* Lighter blue on hover */
+        }
+
+        :root {
+            --primary-color: #3a7bd5;
+            --secondary-color: #00d2ff;
+            --accent-color: #4ade80;
+            --dark-color: #1f2937;
+            --light-color: #f9fafb;
+            --yellow-color: #facc15;
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            --animation-speed-fast: 0.3s;
+            --animation-speed-medium: 0.6s;
+            --animation-speed-slow: 1s;
+            --animation-timing: cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+    </script>
+    <style>
+        /* --- Added/Modified Styles for Icon Size & Color --- */
+        /* Header Icons */
+        .social-header a i.fab.fa-instagram,
+        .social-header a i.fab.fa-telegram {
+            font-size: 1.6rem !important; /* Increased size */
+            color: var(--yellow-color) !important; /* Yellow color */
+            transition: transform var(--animation-speed-fast) ease, color var(--animation-speed-fast) ease;
+        }
+        .social-header a:hover i.fab.fa-instagram, /* Keep hover effect */
+        .social-header a:hover i.fab.fa-telegram {
+             color: var(--accent-color) !important; /* Accent color on hover */
+             transform: scale(1.25) rotate(8deg); /* Keep existing hover transform */
+        }
+
+        /* Footer Icons */
+        footer .social-icons a i.fab.fa-instagram,
+        footer .social-icons a i.fab.fa-telegram,
+        .social-footer a i.fab.fa-instagram, /* Include .social-footer if used */
+        .social-footer a i.fab.fa-telegram {
+            font-size: 1.8rem !important; /* Increased size */
+            color: var(--yellow-color) !important; /* Yellow color */
+            transition: color var(--animation-speed-fast) ease, transform var(--animation-speed-fast) ease;
+        }
+         footer .social-icons a:hover i.fab.fa-instagram, /* Keep hover effect */
+         footer .social-icons a:hover i.fab.fa-telegram,
+         .social-footer a:hover i.fab.fa-instagram,
+         .social-footer a:hover i.fab.fa-telegram {
+             color: var(--accent-color) !important; /* Accent color on hover */
+             transform: scale(1.15); /* Keep existing hover transform */
+         }
+
+        /* Mobile Menu Icons */
+        .mobile-menu .social-icons a i.fab.fa-instagram,
+        .mobile-menu .social-icons a i.fab.fa-telegram {
+            font-size: 1.7rem !important; /* Slightly larger size for mobile menu */
+            color: var(--yellow-color) !important; /* Yellow color */
+            transition: transform var(--animation-speed-fast) ease, color var(--animation-speed-fast) ease;
+        }
+        .mobile-menu .social-icons a:hover i.fab.fa-instagram,
+        .mobile-menu .social-icons a:hover i.fab.fa-telegram {
+            color: var(--accent-color) !important; /* Accent color on hover */
+            transform: scale(1.2); /* Keep existing hover transform */
+        }
+        /* --- End Added/Modified Styles --- */
+
+        :root {
+            --primary-color: #3a7bd5; /* Updated primary color */
+            --secondary-color: #00d2ff; /* Updated secondary color */
+            --accent-color: #4ade80; /* Updated accent color */
+            --dark-color: #1f2937; /* Updated dark color */
+            --light-color: #f9fafb; /* Updated light color */
+            --yellow-color: #facc15;
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            --animation-speed-fast: 0.3s;
+            --animation-speed-medium: 0.6s;
+            --animation-speed-slow: 1s;
+            --animation-timing: cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--dark-color), #111827);
+            color: var(--light-color);
+            line-height: 1.7;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header - Modernized */
+        header {
+            background: rgba(20, 28, 42, 0.65); /* Slightly adjusted glass color and opacity */
+            backdrop-filter: blur(25px) saturate(190%);
+            -webkit-backdrop-filter: blur(25px) saturate(190%);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: transform var(--animation-speed-medium) var(--animation-timing), background var(--animation-speed-medium) ease, box-shadow var(--animation-speed-medium) ease;
+            transform: translateY(0);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37); /* Enhanced shadow */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.18); /* Subtle border */
+        }
+
+        header.scrolled {
+             background: rgba(25, 35, 50, 0.8); /* Darker background on scroll */
+             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+        }
+
+        header.hide {
+            transform: translateY(-110%); /* Hide completely */
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 2.5rem; /* Adjusted padding */
+            background: transparent;
+            transition: padding var(--animation-speed-medium) ease;
+            max-width: 1300px; /* Slightly wider container for navbar */
+            margin: 0 auto;
+        }
+
+        .logo h1 {
+            color: var(--light-color);
+            font-size: 1.9rem; /* Slightly larger */
+            transition: transform var(--animation-speed-fast) ease, text-shadow var(--animation-speed-fast) ease;
+            font-weight: 700;
+            letter-spacing: -1px; /* Tighter spacing */
+        }
+
+        .logo h1:hover {
+            transform: scale(1.03) rotate(-2deg); /* Subtle hover */
+            text-shadow: 0 0 20px var(--accent-color);
+        }
+
+        .logo h1 a {
+            color: var(--light-color);
+            text-decoration: none;
+        }
+
+        .social-header {
+            display: flex;
+            gap: 1.2rem; /* Increased gap */
+            margin-left: 2rem;
+        }
+
+        .social-header a {
+            color: rgba(249, 250, 251, 0.8); /* Slightly transparent */
+            font-size: 1.2rem;
+            transition: transform var(--animation-speed-fast) ease, color var(--animation-speed-fast) ease;
+        }
+
+        .social-header a:hover {
+            color: var(--accent-color);
+            transform: scale(1.25) rotate(8deg);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1.8rem; /* Increased gap */
+        }
+
+        .nav-menu li a {
+            color: rgba(249, 250, 251, 0.9); /* Slightly transparent */
+            text-decoration: none;
+            font-weight: 600; /* Slightly bolder */
+            padding: 0.6rem 0.2rem; /* Adjusted padding for underline effect */
+            transition: color var(--animation-speed-fast) ease, text-shadow var(--animation-speed-medium) ease; /* Added text-shadow transition */
+            position: relative;
+            font-size: 1.05rem; /* Slightly larger */
+            overflow: visible; /* Allow underline to show */
+            background: none; /* Remove potential background */
+            border-radius: 0;
+            text-shadow: none; /* Ensure no shadow initially */
+        }
+
+        .nav-menu li a::before {
+            content: '';
+            position: absolute;
+            bottom: -5px; /* Adjusted position */
+            left: 0;
+            width: 0;
+            height: 3px; /* Slightly thicker */
+            /* Use yellow gradient for underline */
+            background: linear-gradient(90deg, var(--yellow-color), #fffacd); /* Yellow gradient (light yellow) */
+            transition: width var(--animation-speed-medium) var(--animation-timing);
+            border-radius: 2px;
+            box-shadow: 0 0 5px rgba(250, 204, 21, 0.5); /* Add glow to underline */
+        }
+
+        .nav-menu li a:hover {
+            color: var(--yellow-color); /* Yellow color on hover */
+            text-shadow: 0 0 10px rgba(250, 204, 21, 0.8); /* Enhanced yellow glow */
+        }
+
+        .nav-menu li a:hover::before {
+            width: 100%; /* Animate underline width */
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001; /* Ensure it's above mobile menu */
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px 0;
+            background-color: var(--light-color);
+            transition: all var(--animation-speed-medium) ease;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none; /* Initially hidden */
+            position: fixed;
+            top: 0;
+            right: -100%; /* Start off-screen */
+            width: 70%;
+            max-width: 300px;
+            height: 100vh;
+            background: rgba(17, 24, 39, 0.9); /* Darker glass */
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            z-index: 999;
+            padding: 6rem 2rem 2rem; /* Padding top to avoid header */
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
+            transition: right var(--animation-speed-medium) var(--animation-timing);
+            border-left: 1px solid var(--glass-border);
+        }
+
+        .mobile-menu.active {
+            right: 0; /* Slide in */
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-menu li {
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateX(20px);
+            animation: mobileMenuItemFadeIn var(--animation-speed-medium) ease forwards;
+        }
+
+        /* Stagger animation for menu items */
+        .mobile-menu.active li:nth-child(1) { animation-delay: 0.1s; }
+        .mobile-menu.active li:nth-child(2) { animation-delay: 0.15s; }
+        .mobile-menu.active li:nth-child(3) { animation-delay: 0.2s; }
+        .mobile-menu.active li:nth-child(4) { animation-delay: 0.25s; }
+        .mobile-menu.active li:nth-child(5) { animation-delay: 0.3s; }
+        .mobile-menu.active li:nth-child(6) { animation-delay: 0.35s; }
+
+        @keyframes mobileMenuItemFadeIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .mobile-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            display: block;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color var(--animation-speed-fast) ease, color var(--animation-speed-fast) ease;
+        }
+
+        .mobile-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--accent-color);
+        }
+
+        .mobile-menu .social-icons {
+            margin-top: 3rem;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: mobileMenuItemFadeIn var(--animation-speed-medium) ease forwards;
+            animation-delay: 0.4s; /* Delay for social icons */
+        }
+
+        .mobile-menu .social-icons a {
+            font-size: 1.5rem;
+            margin: 0 1rem;
+            color: var(--light-color);
+            transition: transform var(--animation-speed-fast) ease, color var(--animation-speed-fast) ease;
+        }
+
+        .mobile-menu .social-icons a:hover {
+            color: var(--accent-color);
+            transform: scale(1.2);
+        }
+
+        /* Stats Counters */
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px) saturate(150%);
+            -webkit-backdrop-filter: blur(15px) saturate(150%);
+            border-radius: 12px;
+            min-width: 150px;
+            margin: 0.5rem;
+            transition: transform var(--animation-speed-medium) var(--animation-timing), box-shadow var(--animation-speed-medium) var(--animation-timing), background var(--animation-speed-medium) ease;
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+        }
+
+        .stat-box:hover {
+            transform: translateY(-8px) scale(1.05);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px rgba(74, 222, 128, 0.5);
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--light-color);
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px; /* Adjusted padding */
+            text-align: center;
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .hero video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            object-fit: cover;
+            filter: brightness(0.5) contrast(1.1);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2.5rem;
+            background: rgba(17, 24, 39, 0.6);
+            backdrop-filter: blur(18px) saturate(180%);
+            -webkit-backdrop-filter: blur(18px) saturate(180%);
+            border-radius: 20px;
+            margin-top: 80px; /* Adjust for fixed header */
+            transition: transform var(--animation-speed-medium) var(--animation-timing), box-shadow var(--animation-speed-medium) var(--animation-timing);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+        }
+
+        .hero-content:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Modern Gradient Text */
+        .gradient-text-animated {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientFlow 4s linear infinite;
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 200% center; }
+            100% { background-position: 0% center; }
+        }
+
+        .hero h1 {
+            font-size: 2.8rem; /* Slightly larger */
+            margin-bottom: 1rem;
+            font-weight: 700;
+            animation: fadeInUpSlight 1s ease-out forwards;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            animation: fadeInUpSlight 1s ease-out 0.2s forwards;
+        }
+
+        @keyframes fadeInUpSlight {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            animation: fadeInUpSlight 1s ease-out 0.4s forwards;
+        }
+
+        /* Modern Button Style */
+        .btn {
+            padding: 14px 35px;
+            border-radius: 50px; /* Pill shape */
+            text-decoration: none;
+            font-weight: 600;
+            transition: all var(--animation-speed-fast) var(--animation-timing);
+            position: relative;
+            overflow: hidden;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: var(--light-color);
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+            opacity: 0;
+            transition: opacity var(--animation-speed-fast) ease;
+            z-index: -1;
+            border-radius: 50px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 8px 20px rgba(0, 210, 255, 0.4);
+        }
+
+        .btn-primary:hover::before {
+            opacity: 1;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden; /* Hide overflowing animations */
+        }
+
+        .section-bg-overlay::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(17, 24, 39, 0.8); /* Darker overlay */
+            backdrop-filter: blur(8px) saturate(150%);
+            -webkit-backdrop-filter: blur(8px) saturate(150%);
+            z-index: 0;
+        }
+
+        .section-bg-image {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        section .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Modules Section */
+        #modules {
+            background-image: url('https://images.pexels.com/photos/3586966/pexels-photo-3586966.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+        }
+
+        .module {
+            /* Updated luxurious style inspired by n1 */
+            background: linear-gradient(145deg, rgba(30, 41, 55, 0.85), rgba(20, 28, 42, 0.95)); /* Darker, richer gradient */
+            backdrop-filter: blur(20px) saturate(170%);
+            -webkit-backdrop-filter: blur(20px) saturate(170%);
+            border-radius: 18px; /* Slightly larger radius */
+            padding: 3rem 2.5rem; /* Increased padding */
+            margin-bottom: 3rem; /* More spacing */
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.08); /* Enhanced shadow */
+            transition: transform var(--animation-speed-medium) var(--animation-timing), box-shadow var(--animation-speed-medium) var(--animation-timing);
+            border: 1px solid rgba(255, 255, 255, 0.18); /* Slightly more defined border */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .module::before { /* Subtle top highlight */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, rgba(var(--accent-color-rgb, 74, 222, 128), 0.25), transparent);
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .module:hover {
+            transform: translateY(-5px) scale(1.01); /* Subtle hover */
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.4), inset 0 1px 3px rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .module-title {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem; /* Slightly increased gap */
+            margin-bottom: 2rem; /* More space below title */
+            color: var(--light-color);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15); /* Subtle separator */
+            padding-bottom: 1rem;
+        }
+
+        .module-title h3 {
+            font-size: 1.6rem; /* Slightly larger title */
+            font-weight: 600;
+            margin: 0; /* Remove default margin */
+        }
+
+        .module-title i {
+            font-size: 2rem; /* Larger icon */
+            color: var(--accent-color);
+            transition: transform var(--animation-speed-fast) ease;
+            text-shadow: 0 0 8px rgba(var(--accent-color-rgb, 74, 222, 128), 0.4); /* Subtle glow */
+        }
+
+        .module:hover .module-title i {
+            transform: rotate(10deg) scale(1.15);
+        }
+
+        .module-content {
+            display: grid;
+            /* Keep the grid layout, adjust minmax if needed based on content */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly adjusted min width */
+            gap: 2rem; /* Increased gap */
+        }
+
+        .feature-box {
+            /* Refined feature box style */
+            background: rgba(var(--light-color-rgb, 249, 250, 251), 0.05); /* Very subtle light background */
+            backdrop-filter: none; /* Remove backdrop filter for a cleaner look inside */
+            padding: 2rem 1.8rem; /* Adjusted padding */
+            border-radius: 14px; /* Match module radius */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Softer shadow */
+            transition: all var(--animation-speed-medium) var(--animation-timing);
+            border: 1px solid rgba(255, 255, 255, 0.12); /* Subtler border */
+            color: #e0e0e0; /* Slightly lighter text */
+        }
+
+        .feature-box:hover {
+            transform: translateY(-4px); /* Less movement */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            background: rgba(var(--light-color-rgb, 249, 250, 251), 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Removed feature-box icon style as it's not in n2 */
+        /* .feature-box i { ... } */
+
+        .feature-box h4 {
+             font-size: 1.25rem; /* Title inside feature box */
+             color: var(--accent-color);
+             margin-bottom: 1.2rem;
+             font-weight: 600;
+        }
+
+        .feature-box ul {
+            list-style: none;
+            padding-right: 0;
+            margin: 0;
+        }
+
+        .feature-box li {
+            position: relative;
+            padding-right: 2rem; /* Space for custom icon */
+            margin-bottom: 0.8rem; /* Slightly more space */
+            transition: transform var(--animation-speed-fast) ease, color var(--animation-speed-fast) ease;
+            opacity: 0.9;
+            font-size: 0.95rem; /* Slightly smaller text */
+            line-height: 1.6;
+        }
+
+        .feature-box li::before { /* Custom list icon */
+            content: '\f058'; /* FontAwesome check-circle icon */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900; /* Solid icon */
+            position: absolute;
+            right: 0;
+            top: 4px; /* Adjust vertical alignment */
+            color: var(--accent-color);
+            font-size: 1.1em;
+            transition: transform 0.2s ease-out;
+        }
+
+        .feature-box li:hover {
+            transform: translateX(-4px);
+            opacity: 1;
+            color: var(--light-color); /* Brighter text on hover */
+        }
+
+        .feature-box li:hover::before {
+             transform: scale(1.2);
+        }
+
+        .feature-box li:before {
+            content: "\f00c"; /* FontAwesome check icon */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            top: 2px;
+            color: var(--accent-color);
+            transition: transform var(--animation-speed-fast) ease;
+        }
+
+        .feature-box li:hover::before {
+            transform: scale(1.2);
+        }
+
+        /* Instructor Section */
+        #instructor {
+             background-image: url('https://images.pexels.com/photos/1013516/pexels-photo-1013516.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: var(--light-color);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Modern Underline Animation */
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+            transition: width var(--animation-speed-medium) var(--animation-timing);
+        }
+
+        [data-aos="fade-in"].aos-animate .section-header h2::after {
+             width: 80px; /* Animate width on scroll */
+        }
+
+        .instructor-profile {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            padding: 2.5rem;
+            transition: all var(--animation-speed-medium) var(--animation-timing);
+        }
+
+        .instructor-profile:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .instructor-info h3 {
+            font-size: 1.8rem;
+            color: var(--light-color);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .instructor-title {
+            color: var(--accent-color);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            display: inline-block; /* For animation */
+        }
+
+        .instructor-bio {
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Instructor Stats */
+        .instructor-stats {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-item {
+            background: rgba(31, 41, 55, 0.6); /* Darker glass */
+            backdrop-filter: blur(15px) saturate(150%);
+            -webkit-backdrop-filter: blur(15px) saturate(150%);
+            border-radius: 12px;
+            padding: 1.5rem;
+            min-width: 150px;
+            text-align: center;
+            transition: all var(--animation-speed-medium) var(--animation-timing);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-6px) scale(1.05);
+            background: rgba(31, 41, 55, 0.8);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 12px rgba(74, 222, 128, 0.6);
+        }
+        
+        .counter-animation {
+            display: inline-block;
+            position: relative;
+        }
+        
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--light-color);
+            opacity: 0.8;
+        }
+
+        /* Pricing Section */
+        #pricing {
+             background-image: url('https://images.pexels.com/photos/1013516/pexels-photo-1013516.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+        }
+
+        .pricing-plans {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing-plan {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: var(--glass-shadow);
+            transition: all var(--animation-speed-medium) var(--animation-timing);
+            border: 1px solid var(--glass-border);
+            width: 100%;
+            max-width: 500px;
+            position: relative;
+            overflow: hidden; /* For badge and effects */
+        }
+
+        .pricing-plan:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .plan-header h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--light-color);
+            font-weight: 600;
+        }
+
+        .plan-price {
+            margin-bottom: 1.5rem;
+            display: flex; /* Align items */
+            align-items: baseline; /* Align text baseline */
+            gap: 0.5rem;
+        }
+
+        .price {
+            font-size: 2.8rem; /* Larger price */
+            font-weight: 700;
+            color: var(--accent-color);
+            text-shadow: 0 0 15px rgba(74, 222, 128, 0.6);
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #aaa; /* Lighter grey */
+            font-size: 1.2rem; /* Smaller old price */
+            opacity: 0.8;
+        }
+
+        .plan-features ul {
+            list-style: none;
+            margin-bottom: 2.5rem;
+        }
+
+        .plan-features li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--light-color);
+            transition: transform var(--animation-speed-fast) ease;
+            opacity: 0.9;
+        }
+
+        .plan-features li:hover {
+            transform: translateX(-5px);
+            opacity: 1;
+        }
+
+        .plan-features i {
+            color: var(--accent-color);
+            font-size: 1.1rem;
+            transition: transform var(--animation-speed-fast) ease;
+        }
+
+        .plan-features li:hover i {
+            transform: scale(1.2);
+        }
+
+        .plan-footer {
+            text-align: center; /* Center button */
+        }
+
+        /* Modern Discount Badge */
+        .discount-badge {
+            position: absolute;
+            top: 20px;
+            left: -35px; /* Position outside */
+            background: linear-gradient(135deg, #ef4444, #f87171); /* Red gradient */
+            color: white;
+            padding: 8px 40px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transform: rotate(-45deg);
+            box-shadow: 0 5px 15px rgba(239, 68, 68, 0.4);
+            text-align: center;
+            z-index: 2;
+            transition: transform var(--animation-speed-fast) ease;
+        }
+
+        .pricing-plan:hover .discount-badge {
+            transform: rotate(-45deg) scale(1.1);
+        }
+
+        /* Survey Section */
+        #survey {
+            background-image: url('https://images.pexels.com/photos/2850287/pexels-photo-2850287.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .survey-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 3rem;
+            background: rgba(31, 41, 55, 0.75);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-radius: 20px;
+            box-shadow: var(--glass-shadow);
+            position: relative;
+            z-index: 1;
+            border: 1px solid var(--glass-border);
+            color: white;
+            transition: all var(--animation-speed-medium) var(--animation-timing);
+        }
+
+        .survey-container:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            background: rgba(31, 41, 55, 0.85);
+        }
+
+        .survey-container h2 {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            font-weight: 700;
+        }
+
+        .input-group {
+            margin-bottom: 1.8rem;
+            position: relative; /* For potential icon placement */
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.6rem;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        /* Modern Input Styling */
+        .input-group input,
+        .input-group select,
+        .input-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            font-size: 1rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            color: white;
+            transition: all var(--animation-speed-fast) ease;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus,
+        .input-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.3);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .input-group input::placeholder,
+        .input-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Modern Radio/Checkbox */
+        .radio-group, .skill-levels {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .radio-option, .skill-level {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            cursor: pointer;
+            padding: 10px 18px;
+            border-radius: 50px; /* Pill shape */
+            transition: all var(--animation-speed-fast) ease;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid transparent;
+        }
+
+        .radio-option:hover, .skill-level:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            border-color: var(--glass-border);
+        }
+
+        .radio-option input {
+            display: none; /* Hide default radio */
+        }
+
+        .radio-option input:checked + span::before, /* Custom radio indicator */
+        .skill-level.active {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: var(--light-color);
+            font-weight: 600;
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
+            border-color: transparent;
+        }
+
+        /* Custom radio button style (optional visual) */
+        .radio-option span::before {
+            content: '';
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 2px solid var(--glass-border);
+            margin-right: 8px;
+            transition: all var(--animation-speed-fast) ease;
+            vertical-align: middle;
+        }
+        .radio-option input:checked + span::before {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            box-shadow: inset 0 0 0 3px var(--dark-color);
+        }
+
+        /* Hidden input for skill level */
+        #skillLevel {
+            display: none;
+        }
+
+        /* Note and Social Icons */
+        .note {
+            margin-top: 2rem;
+            font-weight: 500;
+            font-size: 1.1em;
+            text-align: center;
+            opacity: 0.9;
+        }
+
+        .survey-social-icons {
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .survey-social-icons a {
+            font-size: 1.8rem;
+            margin: 0 1rem;
+            color: white;
+            display: inline-block;
+            transition: transform var(--animation-speed-fast) ease, color var(--animation-speed-fast) ease;
+        }
+
+        .survey-social-icons a:hover {
+            transform: scale(1.2) rotate(10deg);
+            color: var(--accent-color);
+        }
+
+        /* Submit Button */
+        #surveyForm button[type="submit"] {
+            display: block; /* Make it block */
+            width: 100%; /* Full width */
+            margin-top: 2.5rem;
+        }
+
+        /* About Us & Terms Sections */
+        #about-us {
+            background-image: url('https://images.pexels.com/photos/33545/sunrise-phu-quoc-island-ocean.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+        }
+        #terms {
+            background-image: url('https://images.pexels.com/photos/17726838/pexels-photo-17726838/free-photo-of-two-cable-cars-are-suspended-in-the-fog.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+        }
+
+        .content-box {
+            background: rgba(31, 41, 55, 0.7);
+            backdrop-filter: blur(18px) saturate(180%);
+            -webkit-backdrop-filter: blur(18px) saturate(180%);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid var(--glass-border);
+            margin-bottom: 2rem;
+            transition: all var(--animation-speed-medium) var(--animation-timing);
+            box-shadow: var(--glass-shadow);
+            color: var(--light-color);
+            opacity: 0.95;
+        }
+
+        .content-box:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            background: rgba(31, 41, 55, 0.8);
+            opacity: 1;
+        }
+
+        .content-box p, .content-box ul {
+            line-height: 1.8;
+        }
+
+        .content-box ul {
+            list-style: none;
+            padding-right: 0;
+        }
+
+        .content-box li {
+            position: relative;
+            padding-right: 1.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .content-box li::before {
+            content: "\f101"; /* FontAwesome angle-right */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            top: 3px;
+            color: var(--accent-color);
+            transition: transform var(--animation-speed-fast) ease;
+        }
+
+        .content-box li:hover::before {
+            transform: translateX(-4px);
+        }
+
+        /* Divider */
+        .divider-section {
+            background: linear-gradient(90deg, rgba(17, 24, 39, 0), rgba(55, 65, 81, 0.5), rgba(17, 24, 39, 0));
+            height: 2px;
+            margin: 3rem 0;
+            border: none;
+        }
+
+        /* Footer */
+        footer {
+            background: #111827; /* Darker footer */
+            color: #9ca3af; /* Lighter grey text */
+            padding: 4rem 20px 2rem;
+            position: relative;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Footer - Enhanced Glassy Bubbles */
+        footer {
+            background: linear-gradient(160deg, rgba(25, 35, 50, 0.75), rgba(17, 24, 39, 0.85)); /* Adjusted gradient */
+            color: #adb5bd; /* Slightly adjusted text color */
+            padding: 5rem 20px 2.5rem;
+            position: relative;
+            overflow: hidden; /* Keep bubbles contained */
+            border-top: 1px solid rgba(255, 255, 255, 0.12); /* Slightly more visible border */
+            margin-top: 5rem; /* More space */
+        }
+
+        .bubbles-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: -180px; /* Start further below */
+            background: rgba(255, 255, 255, 0.06); /* More transparent */
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border-radius: 50%;
+            opacity: 0;
+            animation: riseGlassy 15s infinite ease-in;
+            box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.15), /* Inner glow */
+                        0 0 18px rgba(255, 255, 255, 0.08); /* Outer glow */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* More bubbles with varied styles */
+        .bubble:nth-child(1)  { width: 65px; height: 65px; left: 10%; animation-duration: 18s; animation-delay: 0s; }
+        .bubble:nth-child(2)  { width: 30px; height: 30px; left: 20%; animation-duration: 12s; animation-delay: 1.5s; background: rgba(0, 210, 255, 0.08); }
+        .bubble:nth-child(3)  { width: 50px; height: 50px; left: 35%; animation-duration: 22s; animation-delay: 3s; }
+        .bubble:nth-child(4)  { width: 80px; height: 80px; left: 50%; animation-duration: 16s; animation-delay: 0.5s; background: rgba(74, 222, 128, 0.07); }
+        .bubble:nth-child(5)  { width: 35px; height: 35px; left: 65%; animation-duration: 11s; animation-delay: 2.5s; }
+        .bubble:nth-child(6)  { width: 45px; height: 45px; left: 80%; animation-duration: 19s; animation-delay: 4s; background: rgba(58, 123, 213, 0.09); }
+        .bubble:nth-child(7)  { width: 90px; height: 90px; left: 90%; animation-duration: 25s; animation-delay: 1s; }
+        .bubble:nth-child(8)  { width: 25px; height: 25px; left: 5%;  animation-duration: 14s; animation-delay: 5s; background: rgba(250, 204, 21, 0.06); }
+        .bubble:nth-child(9)  { width: 55px; height: 55px; left: 28%; animation-duration: 17s; animation-delay: 6s; }
+        .bubble:nth-child(10) { width: 40px; height: 40px; left: 55%; animation-duration: 13s; animation-delay: 2s; }
+        .bubble:nth-child(11) { width: 70px; height: 70px; left: 70%; animation-duration: 20s; animation-delay: 3.5s; background: rgba(255, 255, 255, 0.05); }
+        .bubble:nth-child(12) { width: 30px; height: 30px; left: 42%; animation-duration: 10s; animation-delay: 5.5s; }
+
+        @keyframes riseGlassy {
+            0% {
+                transform: translateY(0) scale(0.8) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                 opacity: 0.7; /* Fade in */
+            }
+            50% {
+                transform: translateY(-60vh) scale(1.1) rotate(180deg) translateX(5vw); /* Add horizontal drift */
+                opacity: 0.4;
+            }
+            90% {
+                 opacity: 0.1;
+            }
+            100% {
+                transform: translateY(-110vh) scale(0.7) rotate(360deg) translateX(-5vw);
+                opacity: 0; /* Fade out */
+            }
+        }
+
+        footer .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo h2 a {
+            color: var(--light-color);
+            font-size: 1.8rem;
+            text-decoration: none;
+            transition: color var(--animation-speed-fast), text-shadow var(--animation-speed-fast);
+            font-weight: 700;
+        }
+
+        .footer-logo h2 a:hover {
+            color: var(--accent-color);
+            text-shadow: 0 0 10px var(--accent-color);
+        }
+
+        .footer-logo p {
+            margin-top: 10px;
+            max-width: 300px; /* Limit width */
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            color: var(--light-color);
+            font-weight: 600;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.7rem;
+        }
+
+        .footer-column ul li a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color var(--animation-speed-fast) ease, padding-right var(--animation-speed-fast) ease;
+            position: relative;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--accent-color);
+            padding-right: 10px;
+        }
+
+        .footer-column ul li a::before {
+            content: '›';
+            position: absolute;
+            right: -5px;
+            opacity: 0;
+            transition: all var(--animation-speed-fast) ease;
+            color: var(--accent-color);
+        }
+
+        .footer-column ul li a:hover::before {
+            opacity: 1;
+            right: 0;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+        }
+
+        .footer .social-icons a {
+            font-size: 1.5rem;
+            margin: 0 0.8rem;
+            color: #9ca3af;
+            transition: all var(--animation-speed-fast) ease;
+        }
+
+        .footer .social-icons a:hover {
+            transform: scale(1.2) translateY(-3px);
+            color: var(--accent-color);
+        }
+
+        /* AOS Overrides & Custom Animations */
+        [data-aos] {
+            transition-property: transform, opacity, filter; /* Add filter */
+        }
+
+        [data-aos="fade-up-subtle"] {
+            transform: translateY(40px);
+            opacity: 0;
+            transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        [data-aos="fade-up-subtle"].aos-animate {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        [data-aos="zoom-in-subtle"] {
+            transform: scale(0.9);
+            opacity: 0;
+            transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        [data-aos="zoom-in-subtle"].aos-animate {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        [data-aos="slide-left-subtle"] {
+            transform: translateX(50px);
+            opacity: 0;
+        }
+        [data-aos="slide-left-subtle"].aos-animate {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        [data-aos="slide-right-subtle"] {
+            transform: translateX(-50px);
+            opacity: 0;
+        }
+        [data-aos="slide-right-subtle"].aos-animate {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .nav-menu {
+                gap: 1rem;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .module-content {
+                 grid-template-columns: 1fr; /* Stack on medium screens */
+            }
+            .footer-links {
+                gap: 2rem;
+            }
+            .instructor-stats {
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+            .nav-menu, .social-header {
+                display: none;
+            }
+            .hamburger {
+                display: block;
+            }
+            .mobile-menu {
+                 display: block; /* Enable mobile menu display logic */
+            }
+            .hero-content {
+                padding: 2rem;
+                margin-top: 70px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
+            }
+            .btn {
+                padding: 12px 30px;
+            }
+            .footer-content, .footer-links {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+            .footer-logo p {
+                margin: 10px auto 0;
+            }
+            .survey-container {
+                padding: 2rem;
+                width: 95%;
+            }
+            .pricing-plans {
+                flex-direction: column;
+                align-items: center;
+            }
+            .pricing-plan {
+                max-width: 90%;
+            }
+            .instructor-stats {
+                flex-direction: column;
+                align-items: center;
+            }
+            .stat-item {
+                width: 80%;
+                min-width: auto;
+            }
+            .content-box ul li {
+                 padding-right: 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            section {
+                padding: 3rem 0;
+            }
+            .hero {
+                min-height: 70vh;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .btn {
+                padding: 10px 25px;
+                font-size: 0.9rem;
+            }
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+            .module, .feature-box, .instructor-profile, .survey-container, .content-box, .pricing-plan {
+                padding: 1.5rem;
+                border-radius: 12px; /* Slightly smaller radius */
+            }
+            .skill-levels {
+                flex-direction: column;
+                align-items: stretch; /* Full width */
+            }
+            .radio-group {
+                 flex-direction: column;
+                 align-items: flex-start;
+            }
+            .footer-column h3 {
+                 font-size: 1.1rem;
+            }
+            .stat-value {
+                 font-size: 2.2rem;
+            }
+            .price {
+                 font-size: 2.5rem;
+            }
+            .old-price {
+                 font-size: 1rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <div class="logo">
+            <h1><a href="#home">DMX</a></h1>
+        </div>
+        <div class="social-header">
+            <a href="https://www.instagram.com/dmx_iq?igsh=cWFpbGxvNWdldzd2" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://t.me/in_21g" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="#home"><i class="fas fa-home"></i> الرئيسية</a></li>
+            <li><a href="#modules"><i class="fas fa-layer-group"></i> المحتوى</a></li>
+            <li><a href="#instructor"><i class="fas fa-chalkboard-teacher"></i> المدرب</a></li>
+            <li><a href="#pricing"><i class="fas fa-tags"></i> الأسعار</a></li>
+            <li><a href="#survey"><i class="fas fa-edit"></i> التسجيل</a></li>
+            <li><a href="#about-us"><i class="fas fa-users"></i> من نحن</a></li>
+            <li><a href="#terms"><i class="fas fa-file-contract"></i> الشروط</a></li>
+            <li><a href="page2.html" target="_blank" style="color: var(--yellow-color);"><i class="fas fa-folder-open"></i> نماذج عن الدورة</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="social-icons" style="margin-bottom: 2rem; margin-top: 0;"> <!-- Moved social icons to top & adjusted margin -->
+            <a href="https://www.instagram.com/dmx_iq?igsh=cWFpbGxvNWdldzd2" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://t.me/in_21g" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+        </div>
+        <ul>
+             <li><a href="#home"><i class="fas fa-home"></i> الرئيسية</a></li>
+            <li><a href="#modules"><i class="fas fa-layer-group"></i> المحتوى</a></li>
+            <li><a href="#instructor"><i class="fas fa-chalkboard-teacher"></i> المدرب</a></li>
+            <li><a href="#pricing"><i class="fas fa-tags"></i> الأسعار</a></li>
+            <li><a href="#survey"><i class="fas fa-edit"></i> التسجيل</a></li>
+            <li><a href="#about-us"><i class="fas fa-users"></i> من نحن</a></li>
+            <li><a href="#terms"><i class="fas fa-file-contract"></i> الشروط</a></li>
+        </ul>
+    </div>
+</header>
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <!-- Video Background -->
+    <video autoplay muted loop playsinline id="hero-video-background">
+        <source src="videos/hero_background.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <!-- Glassy Overlay -->
+    <div class="hero-overlay"></div>
+    <!-- Content -->
+    <div class="hero-content" data-aos="zoom-in-subtle">
+        <h1 class="gradient-text-animated">أتقن مهارات بوربوينت الاحترافية</h1>
+        <p class="hero-subtitle">اضغط على " نماذج من الدورة " للاطلاع على المحتوى</p>
+        <!-- <p style="color: var(--yellow-color); margin-top: 1rem; font-weight: 500;">اضغط على \'مقاطع وملفات من الدورة\' للاطلاع على المحتوى</p> -->
+        <div class="cta-buttons">
+            <a href="#survey" class="btn btn-primary">سجل الآن</a>
+        </div>
+    </div>
+</section>
+<!-- Modules Section -->
+<section id="modules" class="modules section-bg-image section-bg-overlay">
+    <div class="container">
+        <div class="section-header" data-aos="fade-in">
+            <h2 class="gradient-text-animated">محتوى الدورة</h2>
+        </div>
+    </div>
+</section>
+<!-- Modules Section -->
+<section id="modules" class="modules section-bg-image section-bg-overlay">
+    <div class="container">
+        <div class="section-header" data-aos="fade-in">
+            <h2 class="gradient-text-animated">محتوى الدورة</h2>
+        </div>
+
+        <div class="module" data-aos="fade-up-subtle">
+            <div class="module-title">
+                <i class="fas fa-file-powerpoint"></i>
+                <h3 class="gradient-text-animated">PowerPoint</h3>
+            </div>
+            <div class="module-content">
+                <div class="feature-box" data-aos="fade-up-subtle" data-aos-delay="100">
+                    <i class="fas fa-tools"></i>
+                    <h4 class="gradient-text-animated">أولًا: الأساسيات وأدوات PowerPoint الرئيسية</h4>
+                    <ul>
+                        <li>فهم الشريط الرئيسي وأدوات التحرير الأساسية.</li>
+                        <li>إدراج النصوص، الجداول، المخططات، والصور باستخدام أداة إدراج.</li>
+                        <li>التحكم في المحاذاة والتنظيم باستخدام أدوات الرسم والتخطيط.</li>
+                        <li>اختيار القوالب والخطوط المناسبة وفقًا لهدف العرض.</li>
+                    </ul>
+                    <h4 class="gradient-text-animated" style="margin-top: 15px;">تصميم وتنسيق العروض التقديمية:</h4>
+                    <ul>
+                        <li>تخصيص ألوان الشرائح والخطوط لتناسب علامتك التجارية أو المحتوى الأكاديمي.</li>
+                        <li>استخدام تنسيق الخلفيات وإضافة تأثيرات متقدمة.</li>
+                        <li>إنشاء تصميمات جذابة للعناوين والنصوص مع إضافة لمسات فنية.</li>
+                    </ul>
+                </div>
+                <div class="feature-box" data-aos="fade-up-subtle" data-aos-delay="200">
+                    <i class="fas fa-film"></i>
+                    <h4 class="gradient-text-animated">ثانيًا: الانتقالات والحركات لإضافة تأثير بصري قوي</h4>
+                    <h4 class="gradient-text-animated" style="margin-top: 15px;">إضافة التأثيرات الديناميكية والمميزة:</h4>
+                    <ul>
+                        <li>فهم الفرق بين الانتقالات (Transitions) والحركات (Animations).</li>
+                        <li>تخصيص سرعة واتجاه الحركات لإبراز الأفكار المهمة.</li>
+                        <li>إنشاء حركات متتالية لجعل المحتوى يظهر بشكل تفاعلي.</li>
+                        <li>ضبط الإعدادات التلقائية للعناصر المتحركة.</li>
+                    </ul>
+                    <h4 class="gradient-text-animated" style="margin-top: 15px;">تحويل العروض إلى تجربة سينمائية:</h4>
+                    <ul>
+                        <li>إضافة مؤثرات صوتية وتداخلات فيديو لتعزيز التفاعل.</li>
+                        <li>ضبط التوقيت بين الشرائح والمحتوى المتحرك لتحقيق تدفق سلس.</li>
+                        <li>استخدام ميزة المسارات المخصصة (Motion Paths) لحركة مخصصة.</li>
+                    </ul>
+                </div>
+                <div class="feature-box" data-aos="fade-up-subtle" data-aos-delay="300">
+                    <i class="fas fa-exchange-alt"></i>
+                    <h4 class="gradient-text-animated">ثالثًا: تحويل العروض إلى أشكال متعددة</h4>
+                    <h4 class="gradient-text-animated" style="margin-top: 15px;">طرق حفظ العروض التقديمية وإعادة استخدامها:</h4>
+                    <ul>
+                        <li>تصدير العروض التقديمية بصيغة PDF – فيديو – صور – قالب جاهز.</li>
+                        <li>تسجيل عرض الشرائح مع الصوت والفيديو لإنتاج محتوى تفاعلي.</li>
+                        <li>إنشاء ملفات PowerPoint تفاعلية تحتوي على أزرار للتنقل الداخلي.</li>
+                    </ul>
+                </div>
+                <div class="feature-box" data-aos="fade-up-subtle" data-aos-delay="400">
+                    <i class="fas fa-cube"></i>
+                    <h4 class="gradient-text-animated">رابعًا: استخدام نماذج ثلاثية الأبعاد (3D) في PowerPoint</h4>
+                    <h4 class="gradient-text-animated" style="margin-top: 15px;">تصميم عروض متقدمة ثلاثية الأبعاد:</h4>
+                    <ul>
+                        <li>إدراج النماذج ثلاثية الأبعاد وتحريكها بطريقة ديناميكية.</li>
+                        <li>استيراد نماذج 3D من Sketchfab ومصادر أخرى.</li>
+                        <li>دمج النماذج ثلاثية الأبعاد مع الرسوم البيانية والمخططات.</li>
+                        <li>ضبط الإضاءة والظلال داخل PowerPoint للحصول على تأثيرات أكثر واقعية.</li>
+                    </ul>
+                </div>
+                <div class="feature-box" data-aos="fade-up-subtle" data-aos-delay="500">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h4 class="gradient-text-animated">خامسًا: تصميم عروض تقديمية احترافية تناسب جميع المجالات</h4>
+                    <h4 class="gradient-text-animated" style="margin-top: 15px;">عروض دراسية وأكاديمية:</h4>
+                    <ul>
+                        <li>تصميم عروض تعليمية تفاعلية تحتوي على مراجع وأمثلة.</li>
+                        <li>تنسيق المحتوى الأكاديمي بطريقة واضحة وجذابة.</li>
+                        <li>إدراج الجداول والمخططات التوضيحية لتعزيز الفهم.</li>
+                        <li>استخدام الألوان والخطوط المتناسقة لإعطاء مظهر احترافي.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="module" data-aos="fade-up-subtle">
+            <div class="module-title">
+                <i class="fas fa-file-word"></i>
+                <h3 class="gradient-text-animated">Word</h3>
+            </div>
+            <div class="module-content">
+                <div class="feature-box" data-aos="fade-up-subtle" data-aos-delay="100">
+                    <i class="fas fa-tools"></i>
+                    <h4 class="gradient-text-animated">أولاً: أساسيات وأدوات Word الرئيسية</h4>
+                    <ul>
+                        <li>التعرف على واجهة البرنامج وأهم الأدوات.</li>
+                        <li>استخدام التنسيق المتقدم للنصوص وتحسين مظهر المستندات.</li>
+                        <li>إدراج الجداول، الصور، الأشكال، والمخططات بسهولة.</li>
+                        <li>إنشاء نمط فقرة مخصص لتوحيد تنسيق المستند.</li>
+                    </ul>
+                </div>
+                <div class="feature-box" data-aos="fade-up-subtle" data-aos-delay="200">
+                    <i class="fas fa-text-height"></i>
+                    <h4 class="gradient-text-animated">ثانياً: التنسيقات المتقدمة والاحترافية</h4>
+                    <ul>
+                        <li>إعداد العناوين والفهارس التلقائية لسهولة التصفح.</li>
+                        <li>تنسيق المستندات الأكاديمية والتجارية بمظهر أنيق.</li>
+                        <li>استخدام أدوات التدقيق اللغوي والتصحيح التلقائي.</li>
+                        <li>إدراج روابط تشعبية وعناصر تفاعلية داخل المستند.</li>
+                    </ul>
+                </div>
+                <div class="feature-box" data-aos="fade-up-subtle" data-aos-delay="300">
+                    <i class="fas fa-file-alt"></i>
+                    <h4 class="gradient-text-animated">ثالثاً: إنشاء المستندات الاحترافية</h4>
+                    <ul>
+                        <li>تصدير المستندات بصيغة PDF – قالب Word احترافي.</li>
+                        <li>تصميم تقارير ومقالات أكاديمية بشكل متناسق.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+<style>
+/* تأثير لون متدرج متحرك مستمر لكلمة مجاناً */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.text-gradient {
+  background: linear-gradient(270deg, #ff6a00, #ee0979, #ff6a00);
+  background-size: 600% 600%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientAnimation 5s ease infinite;
+  font-weight: bold;
+}
+</style>
+
+<div class="module" data-aos="fade-up-subtle">
+  <div class="module-title">
+    <i class="fas fa-gift"></i>
+    <h3 class="gradient-text-animated">هدايا الاشتراك</h3>
+  </div>
+  <div class="module-content">
+    <div class="feature-box" data-aos="fade-up-subtle" data-aos-delay="100">
+      <i class="fab fa-canva"></i>
+      <h4 class="gradient-text-animated">عند الاشتراك:</h4>
+      <ul>
+        <li>اشتراك Canva Pro سنة <span class="text-gradient">مجاناً</span>.</li>
+        <li>حزمة Office 2024 <span class="text-gradient">مجاناً</span>.</li>
+        <li>+200 قالب PowerPoint جاهز للتصميم <span class="text-gradient">مجاناً</span>.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+                <div class="feature-box" data-aos="fade-up-subtle" data-aos-delay="200">
+                    <i class="fas fa-globe"></i>
+                    <h4 class="gradient-text-animated">استخدام مواقع احترافية لدعم التصميم</h4>
+                    <h4 class="gradient-text-animated" style="margin-top: 15px;">أفضل المواقع لتحسين عروض PowerPoint و Word:</h4>
+                    <ul>
+                        <li>Sketchfab: للحصول على نماذج ثلاثية الأبعاد مجانية.</li>
+                        <li>Pexels: لتحميل صور عالية الجودة تضيف لمسة احترافية.</li>
+                        <li>Remove.bg: لإزالة خلفيات الصور بسهولة.</li>
+                        <li>Flaticon: للحصول على أيقونات احترافية.</li>
+                        <li>Canva: لإنشاء تصميمات جذابة.</li>
+                        <li>Icons: للحصول على رموز وأيقونات متحركة.</li>
+                    </ul>
+                </div>
+                <div class="feature-box" data-aos="fade-up-subtle" data-aos-delay="300">
+                    <i class="fas fa-clock"></i>
+                    <h4 class="gradient-text-animated">معلومات الدورة</h4>
+                    <ul>
+                        <li>مدة كل محاضرة من 45 دقيقة إلى 60 دقيقة</li>
+                        <li>عدد المحاضرات 10</li>
+                        <li>التدريب عبر منصة التليجرام</li>
+                        <li>المحاضرة تكون مسجلة ثم ترسل</li>
+                        <li>اول محاضرة تجريبية '' <span class="gradient-text-animated">مجاناً</span> ''</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Instructor Section -->
+<section id="instructor" class="instructor section-bg-image section-bg-overlay">
+    <div class="container">
+        <div class="section-header" data-aos="fade-in">
+            <h2 class="gradient-text-animated">المدرب</h2>
+        </div>
+        <div class="instructor-profile" data-aos="zoom-in-subtle">
+            <div class="instructor-info">
+                <h3 class="gradient-text-animated">Idan Saleh</h3>
+                <p class="instructor-title">Microsoft Office Trainer | Word & PowerPoint Specialist</p>
+
+                <!-- Instructor Stats -->
+                <div class="instructor-stats" data-aos="fade-up-subtle" data-aos-delay="100">
+                    <div class="stat-item">
+                        <div class="stat-value counter" data-count="3">0</div>
+                        <div class="stat-label">سنوات خبرة</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value counter" data-count="200">0</div>
+                        <div class="stat-label">مشروع بوربوينت</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value counter" data-count="100">0</div>
+                        <div class="stat-label">متدرب</div>
+                    </div>
+                </div>
+
+                <p class="instructor-bio">
+                    Idan لديه أكثر من 3 سنوات من الخبرة في تدريب الأفراد والفرق على Microsoft Word وPowerPoint.<br>
+                    قام بتدريب أكثر من 100 متدرب، وساعدهم على تطوير مهاراتهم العملية في تنسيق المستندات وتصميم العروض التقديمية.
+                </p>
+
+                <!-- Social Links -->
+                <div class="note">📌 تواصل مع المدرب على:</div>
+                <div class="survey-social-icons">
+                    <a href="https://www.instagram.com/in.19g?igsh=aWVqOTMwZno5dGE1" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://t.me/in_19g" target="_blank" aria-label="Telegram">
+                        <i class="fab fa-telegram-plane"></i>
+                    </a>
+                </div>
+                <!-- Link to Course Examples -->
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="page2.html" target="_blank" class="btn" style="background: linear-gradient(90deg, var(--yellow-color), #fffacd); color: var(--dark-color); font-weight: 600; box-shadow: 0 5px 15px rgba(250, 204, 21, 0.4);">
+                        <i class="fas fa-folder-open" style="margin-left: 8px;"></i> نماذج عن الدورة
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing Section -->
+<section id="pricing" class="pricing section-bg-image section-bg-overlay">
+    <div class="container">
+        <div class="section-header" data-aos="fade-in">
+            <h2 class="gradient-text-animated">خطط الاشتراك</h2>
+        </div>
+        <div class="pricing-plans">
+            <div class="pricing-plan" data-aos="fade-up-subtle">
+                <div class="discount-badge">خصم 58%</div>
+                <div class="plan-header">
+                    <h3 class="gradient-text-animated">الخطة الأساسية</h3>
+                    <div class="plan-price">
+                        <span class="price counter" data-count="50000">0</span> <!-- Updated price to 50000 -->
+                        <span class="old-price">120 ألف دينار</span>
+                    </div>
+                </div>
+                <div class="plan-features">
+                    <ul>
+                        <li><i class="fas fa-check"></i> الوصول لجميع الدروس والوحدات</li>
+                        <li><i class="fas fa-check"></i> مشاريع عملية</li>
+                        <li><i class="fas fa-check"></i> دعم فني مستمر</li>
+                        <li><i class="fas fa-check"></i> ملفات القوالب الاحترافية</li>
+                        <li><i class="fas fa-check"></i> مكتبة أيقونات وصور عالية الجودة</li>
+                    </ul>
+                </div>
+                <div class="plan-footer">
+                    <a href="#survey" class="btn btn-primary">ابدأ الآن</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Survey Section -->
+<section id="survey" class="survey-section section-bg-image section-bg-overlay">
+    <div class="survey-container" data-aos="zoom-in-subtle">
+        <h2 class="gradient-text-animated">استبيان التسجيل</h2>
+        <form id="surveyForm" action="https://formspree.io/f/movdzbbv" method="POST" data-aos="fade-up-subtle">
+            <div class="input-group">
+                <label for="fullname">الاسم الثلاثي</label>
+                <input type="text" id="fullname" name="fullname" required placeholder="أدخل اسمك الثلاثي">
+            </div>
+
+            <div class="input-group">
+                <label for="email">البريد الإلكتروني</label>
+                <input type="email" id="email" name="email" required placeholder="أدخل بريدك الإلكتروني">
+            </div>
+
+            <div class="input-group">
+                <label for="age">العمر</label>
+                <input type="number" id="age" name="age" required placeholder="أدخل عمرك">
+            </div>
+
+            <div class="input-group">
+                <label for="address">السكن</label>
+                <input type="text" id="address" name="address" required placeholder="أدخل عنوان سكنك">
+            </div>
+
+            <div class="input-group">
+                <label for="phone">رقم الهاتف</label>
+                <input type="tel" id="phone" name="phone" required placeholder="أدخل رقم هاتفك">
+            </div>
+
+            <div class="input-group">
+                <label for="message">هل تريد اضافة شي اخر ؟ </label>
+                <textarea id="message" name="message" placeholder="أدخل رسالتك هنا" rows="4"></textarea>
+            </div>
+
+            <div class="input-group">
+                <label>هل استخدمت برامج الأوفيس من قبل؟</label>
+                <div class="radio-group">
+                    <label class="radio-option">
+                        <input type="radio" name="officeExperience" value="نعم" required>
+                        <span>نعم</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="officeExperience" value="لا">
+                        <span>لا</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>ماهو مستواك في استخدام الحاسوب؟</label>
+                <div class="skill-levels">
+                    <div class="skill-level" onclick="selectSkillLevel(this)">مقبول</div>
+                    <div class="skill-level" onclick="selectSkillLevel(this)">متوسط</div>
+                    <div class="skill-level" onclick="selectSkillLevel(this)">جيد</div>
+                    <div class="skill-level" onclick="selectSkillLevel(this)">محترف</div>
+                </div>
+                <input type="hidden" id="skillLevel" name="skillLevel" required>
+            </div>
+
+            <!-- Note and Social Icons -->
+            <div class="note"> عند التسجيل تواصل معنا على الإنستغرام أو التليجرام:</div>
+            <div class="survey-social-icons">
+                <a href="https://www.instagram.com/dmx_iq?igsh=cWFpbGxvNWdldzd2" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://t.me/in_21g" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+            </div>
+
+            <button type="submit" class="btn btn-primary">إرسال التسجيل</button>
+        </form>
+    </div>
+</section>
+
+<!-- About Us Section -->
+<section id="about-us" class="about-section section-bg-image section-bg-overlay">
+    <div class="container">
+        <div class="section-header" data-aos="fade-in">
+            <h2 class="gradient-text-animated">من نحن</h2>
+        </div>
+        <div class="content-box" data-aos="fade-up-subtle">
+            <p>
+                أنا طالب هندسة أرى أن المعرفة مسؤولية أساسية تساهم في بناء مجتمع واعٍ ومتطور.
+                صممت هذه الدورة بأسلوب مبسط وعملي، مع التركيز على الجوانب التطبيقية،
+                واستخدمت أدوات تفاعلية وتقنيات حديثة لإيصال المفاهيم بوضوح وتطوير المهارات بأسلوب احترافي.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Terms Section -->
+<section id="terms" class="terms-section section-bg-image section-bg-overlay">
+    <div class="container">
+        <div class="section-header" data-aos="fade-in">
+            <h2 class="gradient-text-animated">الشروط والأحكام</h2>
+        </div>
+        <div class="content-box" data-aos="fade-up-subtle">
+            <ul>
+                <li>توضح هذه الشروط العلاقة القانونية بين مقدم دورة "PowerPoint من الصفر إلى الاحتراف" والمستخدمين، استنادًا إلى الدستور العراقي لعام 2005 وقانون حماية حق المؤلف.</li>
+                <li>يعتبر التسجيل في الدورة أو استخدامها بمثابة موافقة كاملة من المستخدم على هذه الشروط والأحكام.</li>
+                <li>جميع المحتويات المقدمة في الدورة (بما في ذلك النصوص، الصور، الفيديوهات، والمواد التعليمية) هي ملكية فكرية محمية بموجب قانون حماية حق المؤلف العراقي.</li>
+                <li>يُمنح المستخدم حق الوصول الشخصي غير الحصري وغير القابل للتحويل لاستخدام محتوى الدورة لأغراض التعلم الشخصي فقط.</li>
+                <li>يُحظر على المستخدم نسخ أو إعادة إنتاج أو توزيع أو بيع أو نقل أي جزء من محتوى الدورة دون إذن كتابي مسبق من مقدم الدورة.</li>
+                <li>يحتفظ مقدم الدورة بالحق في تعديل أو تحديث هذه الشروط والأحكام في أي وقت، وسيتم إخطار المستخدمين بالتغييرات الجوهرية.</li>
+                <li>يمكن للمستخدم إلغاء اشتراكه في الدورة في أي وقت، لكن دون استرداد الأموال.</li>
+                <li>يتم التعامل مع البيانات الشخصية للمستخدمين وفقًا لسياسة الخصوصية المعتمدة وبما يتوافق مع القوانين العراقية ذات الصلة.</li>
+                <li>في حالة وجود أي نزاع، سيتم حله وديًا أولاً، وإذا تعذر ذلك، تختص المحاكم العراقية بالفصل في النزاع.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Divider -->
+<hr class="divider-section">
+
+<!-- Footer -->
+<footer>
+    <div class="color-bubbles"> <!-- Subtle background bubbles -->
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2><a href="#home">DMX</a></h2>
+                <p>نقدم دورات احترافية في مجال تصميم العروض التقديمية وإدارة المستندات</p>
+                <div class="social-icons" style="margin-top: 20px;">
+                    <a href="https://www.instagram.com/dmx_iq?igsh=cWFpbGxvNWdldzd2" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://t.me/in_21g" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+            <ul class="nav-menu">
+            <li><a href="#home">الرئيسية</a></li>
+            <li><a href="#modules">المحتوى</a></li>
+            <li><a href="#instructor">المدرب</a></li>
+            <li><a href="#pricing">الأسعار</a></li>
+            <li><a href="#survey">استبيان</a></li>
+            <li><a href="page2.html" class="highlight-link">تصاميم الدورة</a></li>
+        </ul>
+                        <li><a href="#survey">التسجيل</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>معلومات</h3>
+                    <ul>
+                        <li><a href="#about-us">من نحن</a></li>
+                        <li><a href="#terms">الشروط والأحكام</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 DMX. جميع الحقوق محفوظة.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    // Initialize AOS (Animate On Scroll)
+    AOS.init({
+        duration: 800, // Default duration
+        easing: 'ease-in-out-quad', // Smoother easing
+        once: false, // Animate every time element scrolls into view
+        offset: 50, // Trigger animations a bit earlier
+        debounceDelay: 50, // Frequent scroll events
+        throttleDelay: 99, // Handle scroll events efficiently
+    });
+
+    // Hamburger Menu Toggle
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const body = document.body;
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        body.classList.toggle('no-scroll'); // Prevent scrolling when menu is open
+    });
+
+    // Close mobile menu when a link is clicked
+    mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            body.classList.remove('no-scroll');
+        });
+    });
+
+    // Hide Header on Scroll Down
+    let lastScrollTop = 0;
+    const header = document.querySelector('header');
+    const scrollThreshold = 100; // Pixels to scroll before hiding header
+
+    window.addEventListener('scroll', () => {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
+            // Scroll Down
+            header.classList.add('hide');
+            // Close mobile menu if open when scrolling down
+            if (mobileMenu.classList.contains('active')) {
+                 hamburger.classList.remove('active');
+                 mobileMenu.classList.remove('active');
+                 body.classList.remove('no-scroll');
+            }
+        } else if (scrollTop < lastScrollTop || scrollTop <= scrollThreshold) {
+            // Scroll Up or near top
+            header.classList.remove('hide');
+        }
+
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }, { passive: true }); // Improve scroll performance
+
+    // Skill Level Selection
+    function selectSkillLevel(element) {
+        const skillLevels = document.querySelectorAll('.skill-level');
+        skillLevels.forEach(level => {
+            level.classList.remove('active');
+        });
+        element.classList.add('active');
+        document.getElementById('skillLevel').value = element.textContent.trim(); // Use trim()
+    }
+
+    // Smooth Scrolling for Anchor Links (Redundant if html scroll-behavior is set, but good fallback)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            // Check if it's a real anchor link and not just '#' or an external link
+            if (targetId && targetId.startsWith('#') && targetId.length > 1) {
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault(); // Prevent default only for valid internal links
+                    const headerOffset = document.querySelector('header').offsetHeight || 80; // Get header height dynamically
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+
+    // Counter Animation Function
+    function animateCounter(counterElement, target, duration = 2000) {
+        let start = 0;
+        const stepTime = Math.abs(Math.floor(duration / target)) || 1; // Calculate step time, ensure minimum 1ms
+        const increment = target > start ? 1 : -1;
+        let current = start;
+        const timer = setInterval(() => {
+            current += increment * Math.ceil(target / (duration / stepTime)); // Adjust increment based on speed
+            if ((increment > 0 && current >= target) || (increment < 0 && current <= target)) {
+                current = target;
+                clearInterval(timer);
+            }
+            // Format large numbers (like price)
+            if (counterElement.classList.contains('price')) {
+                 counterElement.innerText = current.toLocaleString('ar-IQ'); // Format for Iraqi locale
+            } else {
+                 counterElement.innerText = Math.ceil(current);
+            }
+            if (current === target && counterElement.classList.contains('price')) {
+                 counterElement.innerText += " دينار"; // Add currency after price animation finishes
+            }
+        }, stepTime);
+    }
+
+    // Intersection Observer for Counters
+    document.addEventListener('DOMContentLoaded', function() {
+        const counters = document.querySelectorAll('.counter');
+        const observerOptions = {
+            root: null, // relative to document viewport
+            rootMargin: '0px',
+            threshold: 0.3 // Trigger when 30% of the element is visible
+        };
+
+        const observerCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = +counter.getAttribute('data-count');
+                    // Check if already animated
+                    if (!counter.classList.contains('animated')) {
+                        animateCounter(counter, target);
+                        counter.classList.add('animated'); // Mark as animated
+                    }
+                    // Optional: Unobserve after animation to save resources
+                    // observer.unobserve(counter);
+                }
+            });
+        };
+
+        const counterObserver = new IntersectionObserver(observerCallback, observerOptions);
+
+        counters.forEach(counter => {
+            counterObserver.observe(counter);
+        });
+    });
+
+</script>
+<script src="js/security.js"></script>
+</body>
+</html>
+
+
+
+
+
