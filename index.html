@@ -20,6 +20,62 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <style>
+        /* --- تأثير لون متدرج متحرك مستمر لكلمة مجاناً --- */
+        @keyframes gradientAnimation {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+
+        .text-gradient {
+          background: linear-gradient(270deg, #ff6a00, #ee0979, #ff6a00);
+          background-size: 600% 600%;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          animation: gradientAnimation 5s ease infinite;
+          font-weight: bold;
+        }
+        
+        /* --- تأثيرات الزجاج للفيديو --- */
+        .hero-glass-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px) saturate(180%);
+            -webkit-backdrop-filter: blur(15px) saturate(180%);
+            z-index: -1;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .hero-video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -2;
+            border-radius: 20px;
+        }
+        
+        .hero-video-container video {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            filter: brightness(0.7) contrast(1.1);
+        }
+        
         /* --- Added/Modified Styles for Module Icons --- */
         .module-title i,
         .feature-box i {
@@ -57,7 +113,7 @@
             --animation-timing: cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
-    </script>
+    </style>
     <style>
         /* --- Added/Modified Styles for Icon Size & Color --- */
         /* Header Icons */
@@ -427,20 +483,6 @@
             overflow: hidden;
         }
 
-        .hero video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translate(-50%, -50%);
-            z-index: -1;
-            object-fit: cover;
-            filter: brightness(0.5) contrast(1.1);
-        }
-
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
@@ -453,6 +495,8 @@
             transition: transform var(--animation-speed-medium) var(--animation-timing), box-shadow var(--animation-speed-medium) var(--animation-timing);
             border: 1px solid var(--glass-border);
             box-shadow: var(--glass-shadow);
+            position: relative;
+            z-index: 1;
         }
 
         .hero-content:hover {
@@ -1630,18 +1674,19 @@
 </header>
 <!-- Hero Section -->
 <section id="home" class="hero">
-    <!-- Video Background -->
-    <video autoplay muted loop playsinline id="hero-video-background">
-        <source src="videos/hero_background.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <!-- Glassy Overlay -->
-    <div class="hero-overlay"></div>
+    <!-- Video Background with Glass Effect -->
+    <div class="hero-glass-overlay"></div>
+    <div class="hero-video-container">
+        <video autoplay muted loop playsinline id="hero-video-background">
+            <source src="https://videos.pexels.com/video-files/5608053/5608053-uhd_2560_1440_30fps.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    
     <!-- Content -->
     <div class="hero-content" data-aos="zoom-in-subtle">
         <h1 class="gradient-text-animated">أتقن مهارات بوربوينت الاحترافية</h1>
         <p class="hero-subtitle">اضغط على " نماذج من الدورة " للاطلاع على المحتوى</p>
-        <!-- <p style="color: var(--yellow-color); margin-top: 1rem; font-weight: 500;">اضغط على \'مقاطع وملفات من الدورة\' للاطلاع على المحتوى</p> -->
         <div class="cta-buttons">
             <a href="#survey" class="btn btn-primary">سجل الآن</a>
         </div>
@@ -1767,30 +1812,6 @@
                 </div>
             </div>
         </div>
-
-<style>
-/* تأثير لون متدرج متحرك مستمر لكلمة مجاناً */
-@keyframes gradientAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.text-gradient {
-  background: linear-gradient(270deg, #ff6a00, #ee0979, #ff6a00);
-  background-size: 600% 600%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradientAnimation 5s ease infinite;
-  font-weight: bold;
-}
-</style>
 
 <div class="module" data-aos="fade-up-subtle">
   <div class="module-title">
@@ -2040,11 +2061,19 @@
 
 <!-- Footer -->
 <footer>
-    <div class="color-bubbles"> <!-- Subtle background bubbles -->
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
+    <div class="bubbles-container">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
     </div>
     <div class="container">
         <div class="footer-content">
@@ -2235,8 +2264,3 @@
 <script src="js/security.js"></script>
 </body>
 </html>
-
-
-
-
-
