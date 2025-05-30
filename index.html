@@ -1673,25 +1673,189 @@
         </ul>
     </div>
 </header>
-<!-- Hero Section -->
+<!-- أضف هذا داخل <head> في ملفك -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet" />
+
+<style>
+  .hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    overflow: hidden;
+    color: #fff;
+  }
+
+  .hero-glass-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url('https://images.pexels.com/photos/731082/pexels-photo-731082.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') center/cover no-repeat;
+    opacity: 0.12;           /* شفافية عالية */
+    backdrop-filter: blur(24px);  /* تمويه قوي للزجاج */
+    -webkit-backdrop-filter: blur(24px);
+    animation: zoomInOut 30s ease-in-out infinite alternate;
+    z-index: 0;
+  }
+
+  @keyframes zoomInOut {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  /* حاوية الكرات */
+  .bubbles-container {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none; /* حتى لا تؤثر على التفاعل مع العناصر */
+    z-index: 1;
+    overflow: visible;
+  }
+
+  /* الكرات */
+  .bubble {
+    position: absolute;
+    bottom: -60px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    animation: riseBubble linear infinite;
+    filter: drop-shadow(0 0 4px rgba(255,255,255,0.3));
+  }
+
+  /* حركة صعود الكرات */
+  @keyframes riseBubble {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-110vh) scale(1.2);
+      opacity: 0;
+    }
+  }
+
+  /* أحجام وأوقات مختلفة للكرات */
+  .bubble:nth-child(1) {
+    left: 15%;
+    width: 25px;
+    height: 25px;
+    animation-duration: 20s;
+    animation-delay: 0s;
+  }
+  .bubble:nth-child(2) {
+    left: 30%;
+    width: 40px;
+    height: 40px;
+    animation-duration: 25s;
+    animation-delay: 5s;
+  }
+  .bubble:nth-child(3) {
+    left: 50%;
+    width: 18px;
+    height: 18px;
+    animation-duration: 22s;
+    animation-delay: 3s;
+  }
+  .bubble:nth-child(4) {
+    left: 65%;
+    width: 30px;
+    height: 30px;
+    animation-duration: 27s;
+    animation-delay: 7s;
+  }
+  .bubble:nth-child(5) {
+    left: 80%;
+    width: 22px;
+    height: 22px;
+    animation-duration: 23s;
+    animation-delay: 2s;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 750px;
+    padding: 20px;
+  }
+
+  .gradient-text-animated {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.8rem;
+    font-weight: 900;
+    background: linear-gradient(270deg, #ff3366, #9944ff, #33d1ff, #ff3366);
+    background-size: 900% 900%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 7s ease infinite;
+    margin-bottom: 1.2rem;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .hero-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    margin-bottom: 2.5rem;
+    color: #f1f1f1;
+    text-shadow: 1.5px 1.5px 5px rgba(0,0,0,0.6);
+    font-weight: 600;
+  }
+
+  .btn-primary {
+    background: linear-gradient(45deg, #ff4d6d, #7a4fff);
+    padding: 16px 50px;
+    border-radius: 35px;
+    color: white;
+    font-weight: 900;
+    font-size: 1.3rem;
+    text-decoration: none;
+    box-shadow: 0 7px 25px rgba(255, 77, 109, 0.85);
+    transition: all 0.4s ease;
+    display: inline-block;
+    user-select: none;
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(45deg, #7a4fff, #ff4d6d);
+    box-shadow: 0 12px 40px rgba(122, 79, 255, 0.9);
+  }
+</style>
+
 <section id="home" class="hero">
-    <!-- Video Background with Glass Effect -->
-    <div class="hero-glass-overlay"></div>
-    <div class="hero-video-container">
-        <video autoplay muted loop playsinline id="hero-video-background">
-            <source src="https://videos.pexels.com/video-files/5608053/5608053-uhd_2560_1440_30fps.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+  <div class="hero-glass-overlay"></div>
+
+  <div class="bubbles-container">
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+  </div>
+
+  <div class="hero-content" data-aos="zoom-in-subtle">
+    <h1 class="gradient-text-animated">أتقن مهارات بوربوينت الاحترافية</h1>
+    <p class="hero-subtitle">اضغط على " نماذج من الدورة " للاطلاع على المحتوى</p>
+    <div class="cta-buttons">
+      <a href="#survey" class="btn-primary">سجل الآن</a>
     </div>
-    
-    <!-- Content -->
-    <div class="hero-content" data-aos="zoom-in-subtle">
-        <h1 class="gradient-text-animated">أتقن مهارات بوربوينت الاحترافية</h1>
-        <p class="hero-subtitle">اضغط على " نماذج من الدورة " للاطلاع على المحتوى</p>
-        <div class="cta-buttons">
-            <a href="#survey" class="btn btn-primary">سجل الآن</a>
-        </div>
-    </div>
+  </div>
 </section>
 <!-- Modules Section -->
 <section id="modules" class="modules section-bg-image section-bg-overlay">
