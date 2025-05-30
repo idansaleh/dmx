@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://idansaleh.github.io/dmx/sitemap.xml
