@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="lszCrU_xarijGjimdX9pYAd7gQzdNIeAQIpzDW1I4oU" />
     <title>DMX - دورة بوربوينت الاحترافية</title>
     <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://unpkg.com https://cdn.jsdelivr.net https://formspree.io; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://unpkg.com https://cdn.jsdelivr.net; img-src 'self' https://images.pexels.com data:; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; connect-src 'self' https://formspree.io; media-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formspree.io;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://unpkg.com https://cdn.jsdelivr.net https://formspree.io; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://unpkg.com https://cdn.jsdelivr.net; img-src 'self' https://images.pexels.com https://images.unsplash.com data:; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; connect-src 'self' https://formspree.io; media-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formspree.io;">
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="Referrer-Policy" content="strict-origin-when-cross-origin">
@@ -20,6 +19,7 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- تم تحديث الأنماط والتأثيرات -->
     <style>
         /* --- تأثير لون متدرج متحرك مستمر لكلمة مجاناً --- */
         @keyframes gradientAnimation {
@@ -29,7 +29,7 @@
         }
 
         .text-gradient {
-          background: linear-gradient(270deg, #ff6a00, #ee0979, #ff6a00);
+          background: linear-gradient(270deg, #39ff14, #ff073a, #14c9ff, #fa00ff);
           background-size: 600% 600%;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
@@ -44,12 +44,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(15px) saturate(180%);
-            -webkit-backdrop-filter: blur(15px) saturate(180%);
+            background: rgba(255, 255, 255, 0.09);
+            backdrop-filter: blur(20px) saturate(200%);
+            -webkit-backdrop-filter: blur(20px) saturate(200%);
             z-index: -1;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
@@ -76,6 +76,25 @@
             object-fit: cover;
             filter: brightness(0.7) contrast(1.1);
         }
+
+        /* New Hero Image Background Style */
+        .hero-image-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -3;
+            border-radius: 20px;
+        }
+
+        .hero-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.7) contrast(1.1);
+        }
         
         /* --- Added/Modified Styles for Module Icons --- */
         .module-title i,
@@ -96,6 +115,52 @@
 
         .feature-box li:hover::before {
             color: var(--secondary-color) !important; /* Lighter blue on hover */
+        }
+
+        /* New Text Animation Styles */
+        @keyframes textWave {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-5px) rotate(1deg); }
+            50% { transform: translateY(0) rotate(0deg); }
+            75% { transform: translateY(5px) rotate(-1deg); }
+        }
+
+        .animated-text {
+            display: inline-block;
+            animation: textWave 8s ease-in-out infinite;
+            position: relative;
+            z-index: 1;
+        }
+
+        .animated-text::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #39ff14, #ff073a, #14c9ff, #fa00ff);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .animated-text:hover::after {
+            opacity: 1;
+        }
+
+        .delay-1 { animation-delay: 0.5s; }
+        .delay-2 { animation-delay: 1s; }
+        .delay-3 { animation-delay: 1.5s; }
+        
+        /* تأثير الألوان المتحركة للعنوان الرئيسي */
+        .professional-title {
+            background: linear-gradient(270deg, #39ff14, #ff073a, #14c9ff, #fa00ff);
+            background-size: 600% 600%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientAnimation 5s ease infinite;
+            font-weight: bold;
+            display: inline-block;
         }
 
         :root {
@@ -186,6 +251,7 @@
 
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden; /* Prevent horizontal scroll */
         }
 
         body {
@@ -193,6 +259,8 @@
             color: var(--light-color);
             line-height: 1.7;
             overflow-x: hidden; /* Prevent horizontal scroll */
+            font-weight: 700; /* Make all text bold by default */
+            font-size: 1.2rem; /* تكبير حجم النص الافتراضي */
         }
 
         .container {
@@ -234,11 +302,12 @@
             transition: padding var(--animation-speed-medium) ease;
             max-width: 1300px; /* Slightly wider container for navbar */
             margin: 0 auto;
+            gap: 1rem; /* توزيع متساوي للعناصر */
         }
 
         .logo h1 {
             color: var(--light-color);
-            font-size: 1.9rem; /* Slightly larger */
+            font-size: 2.3rem; /* تكبير حجم اللوجو */
             transition: transform var(--animation-speed-fast) ease, text-shadow var(--animation-speed-fast) ease;
             font-weight: 700;
             letter-spacing: -1px; /* Tighter spacing */
@@ -274,21 +343,24 @@
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 1.8rem; /* Increased gap */
+            gap: 1.5rem; /* تعديل المسافات بين عناصر القائمة */
+            justify-content: center; /* توزيع متساوي */
+            flex-wrap: wrap; /* للتجاوبية على الشاشات الصغيرة */
         }
 
         .nav-menu li a {
             color: rgba(249, 250, 251, 0.9); /* Slightly transparent */
             text-decoration: none;
-            font-weight: 600; /* Slightly bolder */
-            padding: 0.6rem 0.2rem; /* Adjusted padding for underline effect */
+            font-weight: 700; /* Bolder text as requested */
+            padding: 0.6rem 0.3rem; /* Adjusted padding for underline effect */
             transition: color var(--animation-speed-fast) ease, text-shadow var(--animation-speed-medium) ease; /* Added text-shadow transition */
             position: relative;
-            font-size: 1.05rem; /* Slightly larger */
+            font-size: 1.1rem; /* Consistent font size */
             overflow: visible; /* Allow underline to show */
             background: none; /* Remove potential background */
             border-radius: 0;
             text-shadow: none; /* Ensure no shadow initially */
+            letter-spacing: 0.02em; /* Slight letter spacing for better readability */
         }
 
         .nav-menu li a::before {
@@ -359,6 +431,8 @@
             box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
             transition: right var(--animation-speed-medium) var(--animation-timing);
             border-left: 1px solid var(--glass-border);
+            border-top-left-radius: 15px; /* Added rounding */
+            border-bottom-left-radius: 15px; /* Added rounding */
         }
 
         .mobile-menu.active {
@@ -488,7 +562,7 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 2.5rem;
-            background: rgba(17, 24, 39, 0.6);
+            background: rgba(17, 24, 39, 0.1);
             backdrop-filter: blur(18px) saturate(180%);
             -webkit-backdrop-filter: blur(18px) saturate(180%);
             border-radius: 20px;
@@ -507,20 +581,23 @@
 
         /* Modern Gradient Text */
         .gradient-text-animated {
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
-            background-size: 200% auto;
+            background: linear-gradient(90deg, #39ff14, #ff073a, #14c9ff, #fa00ff);
+            background-size: 300% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: gradientFlow 4s linear infinite;
+            animation: gradientFlow 6s linear infinite;
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(250, 0, 255, 0.3);
         }
 
         @keyframes gradientFlow {
-            0% { background-position: 200% center; }
+            0% { background-position: 0% center; }
+            50% { background-position: 100% center; }
             100% { background-position: 0% center; }
         }
 
         .hero h1 {
-            font-size: 2.8rem; /* Slightly larger */
+            font-size: 3.5rem; /* تكبير حجم العنوان الرئيسي */
             margin-bottom: 1rem;
             font-weight: 700;
             animation: fadeInUpSlight 1s ease-out forwards;
@@ -528,7 +605,7 @@
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.5rem; /* تكبير حجم النص */
             margin-bottom: 2.5rem;
             opacity: 0.9;
             animation: fadeInUpSlight 1s ease-out 0.2s forwards;
@@ -636,7 +713,7 @@
 
         .module {
             /* Updated luxurious style inspired by n1 */
-            background: linear-gradient(145deg, rgba(30, 41, 55, 0.85), rgba(20, 28, 42, 0.95)); /* Darker, richer gradient */
+            background: linear-gradient(145deg, rgba(30, 41, 55, 0.1), rgba(20, 28, 42, 0.1)); /* تأثير زجاجي بنسبة 90% */
             backdrop-filter: blur(20px) saturate(170%);
             -webkit-backdrop-filter: blur(20px) saturate(170%);
             border-radius: 18px; /* Slightly larger radius */
@@ -678,7 +755,7 @@
         }
 
         .module-title h3 {
-            font-size: 1.6rem; /* Slightly larger title */
+            font-size: 2rem; /* تكبير حجم عناوين الوحدات */
             font-weight: 600;
             margin: 0; /* Remove default margin */
         }
@@ -724,7 +801,7 @@
         /* .feature-box i { ... } */
 
         .feature-box h4 {
-             font-size: 1.25rem; /* Title inside feature box */
+             font-size: 1.6rem; /* تكبير حجم عناوين الميزات */
              color: var(--accent-color);
              margin-bottom: 1.2rem;
              font-weight: 600;
@@ -742,7 +819,7 @@
             margin-bottom: 0.8rem; /* Slightly more space */
             transition: transform var(--animation-speed-fast) ease, color var(--animation-speed-fast) ease;
             opacity: 0.9;
-            font-size: 0.95rem; /* Slightly smaller text */
+            font-size: 1.2rem; /* تكبير حجم النص في القوائم */
             line-height: 1.6;
         }
 
@@ -794,7 +871,7 @@
         }
 
         .section-header h2 {
-            font-size: 2.2rem;
+            font-size: 3rem; /* تكبير حجم عناوين الأقسام */
             color: var(--light-color);
             margin-bottom: 1.5rem;
             position: relative;
@@ -825,10 +902,10 @@
             max-width: 800px;
             margin: 0 auto;
             text-align: center;
-            background: var(--glass-bg);
+            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(20px) saturate(180%);
             -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border-radius: 20px;
+            border-radius: 0; /* Removed rounding for instructor */
             border: 1px solid var(--glass-border);
             box-shadow: var(--glass-shadow);
             padding: 2.5rem;
@@ -874,7 +951,7 @@
             background: rgba(31, 41, 55, 0.6); /* Darker glass */
             backdrop-filter: blur(15px) saturate(150%);
             -webkit-backdrop-filter: blur(15px) saturate(150%);
-            border-radius: 12px;
+            /* border-radius: 12px; */ /* Removed rounding for instructor stats */
             padding: 1.5rem;
             min-width: 150px;
             text-align: center;
@@ -934,19 +1011,19 @@
         }
 
         .pricing-plan {
-            background: var(--glass-bg);
+            background: rgba(31, 41, 55, 0.1);
             backdrop-filter: blur(20px) saturate(180%);
             -webkit-backdrop-filter: blur(20px) saturate(180%);
             border-radius: 16px;
             padding: 2.5rem;
-            box-shadow: var(--glass-shadow);
+            text-align: center;
             transition: all var(--animation-speed-medium) var(--animation-timing);
             border: 1px solid var(--glass-border);
             width: 100%;
             max-width: 500px;
             position: relative;
             overflow: hidden; /* For badge and effects */
-        }
+        }}
 
         .pricing-plan:hover {
             transform: translateY(-10px) scale(1.03);
@@ -1051,7 +1128,7 @@
             max-width: 800px;
             margin: 2rem auto;
             padding: 3rem;
-            background: rgba(31, 41, 55, 0.75);
+            background: rgba(31, 41, 55, 0.1);
             backdrop-filter: blur(20px) saturate(180%);
             -webkit-backdrop-filter: blur(20px) saturate(180%);
             border-radius: 20px;
@@ -1223,7 +1300,7 @@
         }
 
         .content-box {
-            background: rgba(31, 41, 55, 0.7);
+            background: rgba(31, 41, 55, 0.1);
             backdrop-filter: blur(18px) saturate(180%);
             -webkit-backdrop-filter: blur(18px) saturate(180%);
             padding: 2.5rem;
@@ -1372,6 +1449,7 @@
             justify-content: space-between;
             gap: 40px;
             margin-bottom: 3rem;
+            align-items: flex-start; /* محاذاة العناصر من الأعلى */
         }
 
         .footer-logo h2 a {
@@ -1396,6 +1474,8 @@
             display: flex;
             gap: 60px;
             flex-wrap: wrap;
+            justify-content: space-around; /* توزيع متساوي للعناصر */
+            width: 100%; /* على عرض الشاشة كاملاً للأجهزة الصغيرة */
         }
 
         .footer-column h3 {
@@ -1465,10 +1545,12 @@
             transition-property: transform, opacity, filter; /* Add filter */
         }
 
+        /* Enhanced Scroll Animations */
         [data-aos="fade-up-subtle"] {
-            transform: translateY(40px);
+            transform: translateY(50px);
             opacity: 0;
             transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+            transition-duration: 1000ms;
         }
         [data-aos="fade-up-subtle"].aos-animate {
             transform: translateY(0);
@@ -1476,9 +1558,10 @@
         }
 
         [data-aos="zoom-in-subtle"] {
-            transform: scale(0.9);
+            transform: scale(0.85);
             opacity: 0;
             transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition-duration: 1200ms;
         }
         [data-aos="zoom-in-subtle"].aos-animate {
             transform: scale(1);
@@ -1486,8 +1569,9 @@
         }
 
         [data-aos="slide-left-subtle"] {
-            transform: translateX(50px);
+            transform: translateX(60px);
             opacity: 0;
+            transition-duration: 1000ms;
         }
         [data-aos="slide-left-subtle"].aos-animate {
             transform: translateX(0);
@@ -1495,8 +1579,9 @@
         }
 
         [data-aos="slide-right-subtle"] {
-            transform: translateX(-50px);
+            transform: translateX(-60px);
             opacity: 0;
+            transition-duration: 1000ms;
         }
         [data-aos="slide-right-subtle"].aos-animate {
             transform: translateX(0);
@@ -1525,6 +1610,8 @@
         @media (max-width: 768px) {
             .navbar {
                 padding: 1rem;
+                justify-content: space-between;
+                flex-wrap: wrap;
             }
             .nav-menu, .social-header {
                 display: none;
@@ -1552,9 +1639,19 @@
                 flex-direction: column;
                 text-align: center;
                 gap: 2rem;
+                align-items: center;
+            }
+            .footer-logo {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
             .footer-logo p {
                 margin: 10px auto 0;
+            }
+            .footer-column {
+                width: 100%;
+                text-align: center;
             }
             .survey-container {
                 padding: 2rem;
@@ -1600,9 +1697,9 @@
             .section-header h2 {
                 font-size: 1.8rem;
             }
-            .module, .feature-box, .instructor-profile, .survey-container, .content-box, .pricing-plan {
+            .module, .feature-box, /* .instructor-profile, */ .survey-container, .content-box, .pricing-plan {
                 padding: 1.5rem;
-                border-radius: 12px; /* Slightly smaller radius */
+                border-radius: 12px; /* Slightly smaller radius, instructor excluded */
             }
             .skill-levels {
                 flex-direction: column;
@@ -1617,6 +1714,15 @@
             }
             .stat-value {
                  font-size: 2.2rem;
+            }
+            .logo h1 {
+                font-size: 1.5rem;
+            }
+            .social-header a i {
+                font-size: 1.3rem !important;
+            }
+            .footer-logo h2 a {
+                font-size: 1.5rem;
             }
             .price {
                  font-size: 2.5rem;
@@ -1675,18 +1781,15 @@
 </header>
 <!-- Hero Section -->
 <section id="home" class="hero">
-    <!-- Video Background with Glass Effect -->
+    <!-- Image Background with Glass Effect -->
     <div class="hero-glass-overlay"></div>
-    <div class="hero-video-container">
-        <video autoplay muted loop playsinline id="hero-video-background">
-            <source src="https://videos.pexels.com/video-files/5608053/5608053-uhd_2560_1440_30fps.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+    <div class="hero-image-container">
+        <img src="https://images.unsplash.com/photo-1656501379044-9e44f699d70d?q=80&w=2134&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Background Image">
     </div>
     
     <!-- Content -->
     <div class="hero-content" data-aos="zoom-in-subtle">
-        <h1 class="gradient-text-animated">أتقن مهارات بوربوينت الاحترافية</h1>
+        <h1><span class="animated-text">أتقن</span> <span class="animated-text delay-1">مهارات</span> <span class="animated-text delay-2">PowerPoint</span> <span class="animated-text delay-3">- Word</span></h1>
         <p class="hero-subtitle">اضغط على " نماذج من الدورة " للاطلاع على المحتوى</p>
         <div class="cta-buttons">
             <a href="#survey" class="btn btn-primary">سجل الآن</a>
@@ -1889,8 +1992,8 @@
                 </div>
 
                 <p class="instructor-bio">
-                    Idan has more than 3 years of experience in training both individuals and teams on Microsoft Word and PowerPoint  
-                    He has guided over 100 trainees in developing real-world skills for creating well-structured documents and effective presentation slides
+                    Idan لديه أكثر من 3 سنوات من الخبرة في تدريب الأفراد والفرق على Microsoft Word وPowerPoint.<br>
+                    قام بتدريب أكثر من 100 متدرب، وساعدهم على تطوير مهاراتهم العملية في تنسيق المستندات وتصميم العروض التقديمية.
                 </p>
 
                 <!-- Social Links -->
@@ -1954,32 +2057,32 @@
         <form id="surveyForm" action="https://formspree.io/f/movdzbbv" method="POST" data-aos="fade-up-subtle">
             <div class="input-group">
                 <label for="fullname">الاسم الثلاثي</label>
-                <input type="text" id="fullname" name="fullname" required placeholder="أدخل اسمك الثلاثي">
+                <input type="text" id="fullname" name="fullname" required placeholder="أدخل اسمك الثلاثي" minlength="3" maxlength="100" pattern="^[\p{L}\p{M}\s\'-]+$">
             </div>
 
             <div class="input-group">
                 <label for="email">البريد الإلكتروني</label>
-                <input type="email" id="email" name="email" required placeholder="أدخل بريدك الإلكتروني">
+                <input type="email" id="email" name="email" required placeholder="أدخل بريدك الإلكتروني" maxlength="100">
             </div>
 
             <div class="input-group">
                 <label for="age">العمر</label>
-                <input type="number" id="age" name="age" required placeholder="أدخل عمرك">
+                <input type="number" id="age" name="age" required placeholder="أدخل عمرك" min="10" max="100">
             </div>
 
             <div class="input-group">
                 <label for="address">السكن</label>
-                <input type="text" id="address" name="address" required placeholder="أدخل عنوان سكنك">
+                <input type="text" id="address" name="address" required placeholder="أدخل عنوان سكنك" maxlength="200">
             </div>
 
             <div class="input-group">
                 <label for="phone">رقم الهاتف</label>
-                <input type="tel" id="phone" name="phone" required placeholder="أدخل رقم هاتفك">
+                <input type="tel" id="phone" name="phone" required placeholder="أدخل رقم هاتفك" pattern="^[\d\+\s\-()]*$" maxlength="20">
             </div>
 
             <div class="input-group">
                 <label for="message">هل تريد اضافة شي اخر ؟ </label>
-                <textarea id="message" name="message" placeholder="أدخل رسالتك هنا" rows="4"></textarea>
+                <textarea id="message" name="message" placeholder="أدخل رسالتك هنا" rows="4" maxlength="500"></textarea>
             </div>
 
             <div class="input-group">
@@ -2027,9 +2130,13 @@
         </div>
         <div class="content-box" data-aos="fade-up-subtle">
             <p>
-              نحن متخصصون في تقديم تدريب عملي وإبداعي على أدوات Microsoft Office
-              لأكثر من ثلاث سنوات ساعدنا المتعلمين على إتقان أساسيات Word و PowerPoint من خلال أساليب تطبيقية
-              مهمتنا هي جعل المهارات الرقمية بسيطة ومفيدة ومتاحة للجميع
+                في DMX، نؤمن بأن إتقان الأدوات الرقمية هو مفتاح التميز في العصر الحديث. مهمتنا هي تمكين الأفراد والمؤسسات من خلال تقديم دورات تدريبية عالية الجودة تركز على المهارات العملية والتطبيقية.
+            </p>
+            <p>
+                تم تصميم دورتنا في PowerPoint و Word بعناية فائقة لتلبية احتياجات المتدربين من كافة المستويات، بدءًا من الأساسيات وصولًا إلى التقنيات المتقدمة. نستخدم أساليب تدريب مبتكرة ومحتوى تفاعلي لضمان تجربة تعليمية ممتعة وفعالة، تساعدك على تحقيق أهدافك المهنية والأكاديمية بثقة واحترافية.
+            </p>
+            <p>
+                نحن ملتزمون بتقديم دعم مستمر لمتدربينا ومساعدتهم على مواكبة أحدث التطورات في برامج Microsoft Office، لنساهم معًا في بناء مستقبل رقمي أكثر إشراقًا.
             </p>
         </div>
     </div>
@@ -2042,17 +2149,41 @@
             <h2 class="gradient-text-animated">الشروط والأحكام</h2>
         </div>
         <div class="content-box" data-aos="fade-up-subtle">
-            <ul>
-                <li>توضح هذه الشروط العلاقة القانونية بين مقدم دورة "PowerPoint من الصفر إلى الاحتراف" والمستخدمين، استنادًا إلى الدستور العراقي لعام 2005 وقانون حماية حق المؤلف.</li>
-                <li>يعتبر التسجيل في الدورة أو استخدامها بمثابة موافقة كاملة من المستخدم على هذه الشروط والأحكام.</li>
-                <li>جميع المحتويات المقدمة في الدورة (بما في ذلك النصوص، الصور، الفيديوهات، والمواد التعليمية) هي ملكية فكرية محمية بموجب قانون حماية حق المؤلف العراقي.</li>
-                <li>يُمنح المستخدم حق الوصول الشخصي غير الحصري وغير القابل للتحويل لاستخدام محتوى الدورة لأغراض التعلم الشخصي فقط.</li>
-                <li>يُحظر على المستخدم نسخ أو إعادة إنتاج أو توزيع أو بيع أو نقل أي جزء من محتوى الدورة دون إذن كتابي مسبق من مقدم الدورة.</li>
-                <li>يحتفظ مقدم الدورة بالحق في تعديل أو تحديث هذه الشروط والأحكام في أي وقت، وسيتم إخطار المستخدمين بالتغييرات الجوهرية.</li>
-                <li>يمكن للمستخدم إلغاء اشتراكه في الدورة في أي وقت، لكن دون استرداد الأموال.</li>
-                <li>يتم التعامل مع البيانات الشخصية للمستخدمين وفقًا لسياسة الخصوصية المعتمدة وبما يتوافق مع القوانين العراقية ذات الصلة.</li>
-                <li>في حالة وجود أي نزاع، سيتم حله وديًا أولاً، وإذا تعذر ذلك، تختص المحاكم العراقية بالفصل في النزاع.</li>
-            </ul>
+            <h3>1. مقدمة</h3>
+<p>مرحبًا بك في دورة DMX لتعلم PowerPoint و Word. تحدد هذه الشروط والأحكام ("الشروط") القواعد التي تحكم استخدامك لموقعنا الإلكتروني ("الموقع") والمحتوى التعليمي المقدم ("الدورة"). يُعتبر وصولك إلى الموقع أو تسجيلك في الدورة موافقة صريحة منك على الالتزام بهذه الشروط وسياسة الخصوصية الخاصة بنا.</p>
+
+<h3>2. الملكية الفكرية</h3>
+<p>جميع المواد والمحتويات المقدمة ضمن الدورة، بما في ذلك على سبيل المثال لا الحصر: النصوص، الفيديوهات، الصور، الرسومات، القوالب، والمواد التعليمية الأخرى ("المحتوى")، هي ملكية حصرية لـ DMX ومحميّة بموجب قوانين حقوق النشر والملكية الفكرية المعمول بها في العراق والقوانين الدولية. لا يجوز لك نسخ، تعديل، توزيع، بيع، تأجير، أو إعادة إنتاج أي جزء من المحتوى دون الحصول على إذن كتابي صريح ومسبق من DMX.</p>
+
+<h3>3. ترخيص الاستخدام</h3>
+<p>عند التسجيل في الدورة وسداد الرسوم المقررة (إن وجدت)، تُمنح ترخيصًا شخصيًا، غير حصري، غير قابل للتحويل، وقابل للإلغاء للوصول إلى محتوى الدورة واستخدامه لأغراض التعلم الشخصي فقط. يُحظر تمامًا استخدام المحتوى لأي أغراض تجارية أو مشاركته مع أطراف أخرى.</p>
+
+<h3>4. التسجيل والحساب</h3>
+<p>قد يتطلب الوصول إلى بعض أجزاء الدورة إنشاء حساب شخصي. أنت مسؤول عن الحفاظ على سرية معلومات حسابك وكلمة المرور، وعن جميع الأنشطة التي تحدث تحت حسابك. يجب عليك تقديم معلومات دقيقة وكاملة عند التسجيل وتحديثها عند الضرورة.</p>
+
+<h3>5. الرسوم والدفع (إذا كانت مطبقة)</h3>
+<p>يتم تحديد رسوم الدورة بوضوح على الموقع. يجب سداد الرسوم كاملة قبل بدء الوصول إلى محتوى الدورة. تحتفظ DMX بالحق في تغيير الرسوم في أي وقت، على أن يتم تطبيق الرسوم الجديدة على التسجيلات المستقبلية فقط. يرجى ملاحظة أن جميع الرسوم المدفوعة غير قابلة للاسترداد بمجرد بدء الوصول إلى الدورة، وفقًا لما هو مذكور في سياسة الإلغاء (إن وجدت).</p>
+
+<h3>6. سياسة الإلغاء وعدم استرداد الأموال</h3>
+<p>كما هو مذكور في القسم السابق، فإن رسوم الدورة غير قابلة للاسترداد بمجرد منح الوصول إلى المحتوى التعليمي. يمكنك إلغاء اشتراكك في أي وقت، ولكن لن يتم استرداد أي مبالغ مدفوعة.</p>
+
+<h3>7. قواعد السلوك</h3>
+<p>أنت توافق على استخدام الموقع والدورة بطريقة قانونية وأخلاقية. يُحظر عليك نشر أي محتوى غير قانوني، مسيء، تشهيري، أو ينتهك حقوق الآخرين. تحتفظ DMX بالحق في إنهاء وصولك إلى الدورة دون سابق إنذار في حالة انتهاك هذه القواعد.</p>
+
+<h3>8. إخلاء المسؤولية</h3>
+<p>يتم تقديم محتوى الدورة "كما هو" دون أي ضمانات صريحة أو ضمنية. بينما نسعى لتقديم محتوى دقيق وعالي الجودة، لا تضمن DMX أن المحتوى سيكون خاليًا من الأخطاء أو مناسبًا لجميع الأغراض الفردية. لا تتحمل DMX أي مسؤولية عن أي أضرار مباشرة أو غير مباشرة قد تنشأ عن استخدامك للموقع أو الدورة.</p>
+
+<h3>9. الخصوصية وحماية البيانات</h3>
+<p>نحن ملتزمون بحماية خصوصيتك. يتم جمع واستخدام بياناتك الشخصية وفقًا لسياسة الخصوصية الخاصة بنا، والتي تتوافق مع القوانين العراقية والدولية لحماية البيانات. يمكنك الاطلاع على سياسة الخصوصية الكاملة على موقعنا.</p>
+
+<h3>10. التعديلات على الشروط</h3>
+<p>تحتفظ DMX بالحق في تعديل هذه الشروط في أي وقت. سيتم نشر النسخة المحدثة على الموقع، ويعتبر استمرارك في استخدام الموقع أو الدورة بعد نشر التعديلات موافقة منك على الشروط الجديدة. سيتم إخطار المستخدمين المسجلين بالتغييرات الجوهرية عبر البريد الإلكتروني أو من خلال إشعار بارز على الموقع.</p>
+
+<h3>11. القانون الحاكم وحل النزاعات</h3>
+<p>تخضع هذه الشروط وتُفسر وفقًا للقوانين المعمول بها في جمهورية العراق. في حالة نشوء أي نزاع يتعلق بهذه الشروط أو استخدامك للدورة، يتم السعي أولاً لحله وديًا. إذا تعذر الحل الودي خلال فترة معقولة، فإن المحاكم المختصة في بغداد، العراق، ستكون لها الولاية القضائية الحصرية للنظر في النزاع.</p>
+
+<h3>12. الاتصال بنا</h3>
+<p>إذا كان لديك أي أسئلة حول هذه الشروط والأحكام، يرجى التواصل معنا عبر معلومات الاتصال المتاحة على الموقع.</p>
         </div>
     </div>
 </section>
@@ -2118,14 +2249,20 @@
 
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
-    // Initialize AOS (Animate On Scroll)
+    // Initialize AOS (Animate On Scroll) - تم تعديل الانتقالات لتكون scroll in/out فقط
     AOS.init({
-        duration: 800, // Default duration
-        easing: 'ease-in-out-quad', // Smoother easing
+        duration: 1000, // Increased duration for smoother animations
+        easing: 'ease-in-out-cubic', // More sophisticated easing
         once: false, // Animate every time element scrolls into view
-        offset: 50, // Trigger animations a bit earlier
+        offset: 80, // Trigger animations a bit earlier
         debounceDelay: 50, // Frequent scroll events
         throttleDelay: 99, // Handle scroll events efficiently
+        mirror: true, // Whether elements should animate out while scrolling past them
+        anchorPlacement: 'top-bottom', // Defines which position of the element regarding to window should trigger the animation
+        disable: 'phone', // Enable on all devices
+        startEvent: 'DOMContentLoaded', // Name of the event dispatched on the document, that AOS should initialize on
+        animatedClassName: 'aos-animate', // Class applied on animation
+        initClassName: 'aos-init', // Class applied after initialization
     });
 
     // Hamburger Menu Toggle
