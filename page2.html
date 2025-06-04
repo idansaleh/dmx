@@ -58,6 +58,7 @@
             color: var(--light-color);
             line-height: 1.7;
             overflow-x: hidden;
+            font-size: 1.2rem; /* تكبير حجم النص الافتراضي */
         }
 
         .container {
@@ -103,7 +104,7 @@
 
         .logo h1 {
             color: var(--light-color);
-            font-size: 1.9rem;
+            font-size: 2.3rem; /* تكبير حجم اللوجو */
             transition: transform var(--animation-speed-fast) ease, text-shadow var(--animation-speed-fast) ease;
             font-weight: 700;
             letter-spacing: -1px;
@@ -223,6 +224,8 @@
             box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
             transition: right var(--animation-speed-medium) var(--animation-timing);
             border-left: 1px solid var(--glass-border);
+            border-top-left-radius: 15px; /* Added rounding */
+            border-bottom-left-radius: 15px; /* Added rounding */
         }
 
         .mobile-menu.active {
@@ -337,7 +340,7 @@
         }
 
         .section-header h2 {
-            font-size: 2.2rem;
+            font-size: 3rem; /* تكبير حجم عناوين الأقسام */
             color: var(--light-color);
             margin-bottom: 1.5rem;
             position: relative;
@@ -347,7 +350,7 @@
         }
 
         .section-header p {
-            font-size: 1.2rem;
+            font-size: 1.5rem; /* تكبير حجم النص في العناوين */
             color: rgba(255, 255, 255, 0.8);
             max-width: 800px;
             margin: 0 auto;
@@ -411,7 +414,7 @@
         }
         
         .file-name {
-            font-size: 1.1rem;
+            font-size: 1.4rem; /* تكبير حجم اسم الملف */
             font-weight: 600;
             margin-bottom: 1.2rem;
             color: var(--light-color);
