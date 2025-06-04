@@ -16,9 +16,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+
     <!-- تم تحديث الأنماط والتأثيرات -->
     <style>
         /* --- تأثير لون متدرج متحرك مستمر لكلمة مجاناً --- */
@@ -446,26 +445,16 @@
         }
 
         .mobile-menu li {
-            margin-bottom: 1.5rem;
-            opacity: 0;
-            transform: translateX(20px);
-            animation: mobileMenuItemFadeIn var(--animation-speed-medium) ease forwards;
+            margin-bottom: 1rem; /* تقليل المسافة السفلية قليلاً */
+            opacity: 1; /* إظهار العناصر فوراً */
+            transform: translateX(0); /* إزالة التحريك */
+            /* animation: mobileMenuItemFadeIn var(--animation-speed-medium) ease forwards; */ /* إزالة الأنميشن */
         }
 
-        /* Stagger animation for menu items */
-        .mobile-menu.active li:nth-child(1) { animation-delay: 0.1s; }
-        .mobile-menu.active li:nth-child(2) { animation-delay: 0.15s; }
-        .mobile-menu.active li:nth-child(3) { animation-delay: 0.2s; }
-        .mobile-menu.active li:nth-child(4) { animation-delay: 0.25s; }
-        .mobile-menu.active li:nth-child(5) { animation-delay: 0.3s; }
-        .mobile-menu.active li:nth-child(6) { animation-delay: 0.35s; }
+        /* Stagger animation for menu items - Removed */
+        /* .mobile-menu.active li:nth-child(1) { animation-delay: 0.1s; } ... */
 
-        @keyframes mobileMenuItemFadeIn {
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
+        /* @keyframes mobileMenuItemFadeIn { ... } */ /* إزالة تعريف الأنميشن */
 
         .mobile-menu a {
             color: white;
@@ -525,11 +514,7 @@
             box-shadow: var(--glass-shadow);
         }
 
-        .stat-box:hover {
-            transform: translateY(-8px) scale(1.05);
-            background: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-        }
+
 
         .stat-number {
             font-size: 2.5rem;
@@ -597,10 +582,10 @@
         }
 
         .hero h1 {
-            font-size: 3.5rem; /* تكبير حجم العنوان الرئيسي */
-            margin-bottom: 1rem;
+            font-size: 3.8rem; /* زيادة حجم العنوان الرئيسي */
+            margin-bottom: 1.5rem; /* زيادة المسافة السفلية */
+            margin-top: 1rem; /* إضافة مسافة علوية */
             font-weight: 700;
-            animation: fadeInUpSlight 1s ease-out forwards;
             text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
         }
 
@@ -738,11 +723,7 @@
             pointer-events: none;
         }
 
-        .module:hover {
-            transform: translateY(-5px) scale(1.01); /* Subtle hover */
-            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.4), inset 0 1px 3px rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.25);
-        }
+
 
         .module-title {
             display: flex;
@@ -788,17 +769,7 @@
             transition: all var(--animation-speed-medium) var(--animation-timing);
             border: 1px solid rgba(255, 255, 255, 0.12); /* Subtler border */
             color: #e0e0e0; /* Slightly lighter text */
-        }
-
-        .feature-box:hover {
-            transform: translateY(-4px); /* Less movement */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-            background: rgba(var(--light-color-rgb, 249, 250, 251), 0.08);
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-
-        /* Removed feature-box icon style as it's not in n2 */
-        /* .feature-box i { ... } */
+        }/
 
         .feature-box h4 {
              font-size: 1.6rem; /* تكبير حجم عناوين الميزات */
@@ -871,32 +842,18 @@
         }
 
         .section-header h2 {
-            font-size: 3rem; /* تكبير حجم عناوين الأقسام */
+            font-size: 3.2rem; /* زيادة حجم عناوين الأقسام */
             color: var(--light-color);
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem; /* زيادة المسافة السفلية */
+            margin-top: 1.5rem; /* إضافة مسافة علوية */
             position: relative;
             display: inline-block;
             font-weight: 700;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
-        /* Modern Underline Animation */
-        .section-header h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            border-radius: 2px;
-            transition: width var(--animation-speed-medium) var(--animation-timing);
-        }
-
-        [data-aos="fade-in"].aos-animate .section-header h2::after {
-             width: 80px; /* Animate width on scroll */
-        }
+        /* Modern Underline Animation - Removed */
+        /* .section-header h2::after { ... } */
 
         .instructor-profile {
             max-width: 800px;
@@ -1074,10 +1031,7 @@
             opacity: 0.9;
         }
 
-        .plan-features li:hover {
-            transform: translateX(-5px);
-            opacity: 1;
-        }
+
 
         .plan-features i {
             color: var(--accent-color);
@@ -1140,11 +1094,7 @@
             transition: all var(--animation-speed-medium) var(--animation-timing);
         }
 
-        .survey-container:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            background: rgba(31, 41, 55, 0.85);
-        }
+
 
         .survey-container h2 {
             text-align: center;
@@ -1164,7 +1114,6 @@
             opacity: 0.9;
         }
 
-        /* Modern Input Styling */
         .input-group input,
         .input-group select,
         .input-group textarea {
@@ -1177,16 +1126,16 @@
             backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
             color: white;
-            transition: all var(--animation-speed-fast) ease;
+            /* transition: all var(--animation-speed-fast) ease; */ /* إزالة الانتقال */
         }
 
         .input-group input:focus,
         .input-group select:focus,
         .input-group textarea:focus {
             outline: none;
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.3);
-            background-color: rgba(255, 255, 255, 0.1);
+            /* border-color: var(--accent-color); */ /* إزالة تغيير لون الحدود */
+            /* box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.3); */ /* إزالة ظل الصندوق */
+            /* background-color: rgba(255, 255, 255, 0.1); */ /* إزالة تغيير لون الخلفية */
         }
 
         .input-group input::placeholder,
@@ -1313,12 +1262,7 @@
             opacity: 0.95;
         }
 
-        .content-box:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            background: rgba(31, 41, 55, 0.8);
-            opacity: 1;
-        }
+
 
         .content-box p, .content-box ul {
             line-height: 1.8;
@@ -1788,9 +1732,9 @@
     </div>
     
     <!-- Content -->
-    <div class="hero-content" data-aos="zoom-in-subtle">
-        <h1><span class="animated-text">أتقن</span> <span class="animated-text delay-1">مهارات</span> <span class="animated-text delay-2">PowerPoint</span> <span class="animated-text delay-3">- Word</span></h1>
-        <p class="hero-subtitle"> يرجى الاطلاع على التفاصيل أدناه ⬇️ </p>
+    <div class="hero-content">
+        <h1><span>أتقن</span> <span>مهارات</span> <span>PowerPoint</span> <span>- Word</span></h1>
+        <p class="hero-subtitle">اضغط على " نماذج من الدورة " للاطلاع على المحتوى</p>
         <div class="cta-buttons">
             <a href="#survey" class="btn btn-primary">سجل الآن</a>
         </div>
@@ -1803,17 +1747,17 @@
 <!-- Modules Section -->
 <section id="modules" class="modules section-bg-image section-bg-overlay">
     <div class="container">
-        <div class="section-header" data-aos="fade-in">
+        <div class="section-header">
             <h2 class="gradient-text-animated">محتوى الدورة</h2>
         </div>
 
-        <div class="module" data-aos="fade-up-subtle">
+        <div class="module">
             <div class="module-title">
                 <i class="fas fa-file-powerpoint"></i>
                 <h3 class="gradient-text-animated">PowerPoint</h3>
             </div>
             <div class="module-content">
-                <div class="feature-box" data-aos="fade-up-subtle" data-aos-delay="100">
+                <div class="feature-box" data-aos-delay="100">
                     <i class="fas fa-tools"></i>
                     <h4 class="gradient-text-animated">أولًا: الأساسيات وأدوات PowerPoint الرئيسية</h4>
                     <ul>
@@ -1829,7 +1773,7 @@
                         <li>إنشاء تصميمات جذابة للعناوين والنصوص مع إضافة لمسات فنية.</li>
                     </ul>
                 </div>
-                <div class="feature-box" data-aos="fade-up-subtle" data-aos-delay="200">
+                <div class="feature-box" data-aos-delay="200">
                     <i class="fas fa-film"></i>
                     <h4 class="gradient-text-animated">ثانيًا: الانتقالات والحركات لإضافة تأثير بصري قوي</h4>
                     <h4 class="gradient-text-animated" style="margin-top: 15px;">إضافة التأثيرات الديناميكية والمميزة:</h4>
@@ -1846,7 +1790,7 @@
                         <li>استخدام ميزة المسارات المخصصة (Motion Paths) لحركة مخصصة.</li>
                     </ul>
                 </div>
-                <div class="feature-box" data-aos="fade-up-subtle" data-aos-delay="300">
+                <div class="feature-box" data-aos-delay="300">
                     <i class="fas fa-exchange-alt"></i>
                     <h4 class="gradient-text-animated">ثالثًا: تحويل العروض إلى أشكال متعددة</h4>
                     <h4 class="gradient-text-animated" style="margin-top: 15px;">طرق حفظ العروض التقديمية وإعادة استخدامها:</h4>
@@ -1856,7 +1800,7 @@
                         <li>إنشاء ملفات PowerPoint تفاعلية تحتوي على أزرار للتنقل الداخلي.</li>
                     </ul>
                 </div>
-                <div class="feature-box" data-aos="fade-up-subtle" data-aos-delay="400">
+                <div class="feature-box" data-aos-delay="400">
                     <i class="fas fa-cube"></i>
                     <h4 class="gradient-text-animated">رابعًا: استخدام نماذج ثلاثية الأبعاد (3D) في PowerPoint</h4>
                     <h4 class="gradient-text-animated" style="margin-top: 15px;">تصميم عروض متقدمة ثلاثية الأبعاد:</h4>
@@ -1867,7 +1811,7 @@
                         <li>ضبط الإضاءة والظلال داخل PowerPoint للحصول على تأثيرات أكثر واقعية.</li>
                     </ul>
                 </div>
-                <div class="feature-box" data-aos="fade-up-subtle" data-aos-delay="500">
+                <div class="feature-box" data-aos-delay="500">
                     <i class="fas fa-graduation-cap"></i>
                     <h4 class="gradient-text-animated">خامسًا: تصميم عروض تقديمية احترافية تناسب جميع المجالات</h4>
                     <h4 class="gradient-text-animated" style="margin-top: 15px;">عروض دراسية وأكاديمية:</h4>
@@ -1880,13 +1824,13 @@
                 </div>
             </div>
         </div>
-        <div class="module" data-aos="fade-up-subtle">
+        <div class="module">
             <div class="module-title">
                 <i class="fas fa-file-word"></i>
                 <h3 class="gradient-text-animated">Word</h3>
             </div>
             <div class="module-content">
-                <div class="feature-box" data-aos="fade-up-subtle" data-aos-delay="100">
+                <div class="feature-box" data-aos-delay="100">
                     <i class="fas fa-tools"></i>
                     <h4 class="gradient-text-animated">أولاً: أساسيات وأدوات Word الرئيسية</h4>
                     <ul>
@@ -1896,7 +1840,7 @@
                         <li>إنشاء نمط فقرة مخصص لتوحيد تنسيق المستند.</li>
                     </ul>
                 </div>
-                <div class="feature-box" data-aos="fade-up-subtle" data-aos-delay="200">
+                <div class="feature-box" data-aos-delay="200">
                     <i class="fas fa-text-height"></i>
                     <h4 class="gradient-text-animated">ثانياً: التنسيقات المتقدمة والاحترافية</h4>
                     <ul>
@@ -1906,7 +1850,7 @@
                         <li>إدراج روابط تشعبية وعناصر تفاعلية داخل المستند.</li>
                     </ul>
                 </div>
-                <div class="feature-box" data-aos="fade-up-subtle" data-aos-delay="300">
+                <div class="feature-box" data-aos-delay="300">
                     <i class="fas fa-file-alt"></i>
                     <h4 class="gradient-text-animated">ثالثاً: إنشاء المستندات الاحترافية</h4>
                     <ul>
@@ -1917,13 +1861,13 @@
             </div>
         </div>
 
-<div class="module" data-aos="fade-up-subtle">
+<div class="module">
   <div class="module-title">
     <i class="fas fa-gift"></i>
     <h3 class="gradient-text-animated">هدايا الاشتراك</h3>
   </div>
   <div class="module-content">
-    <div class="feature-box" data-aos="fade-up-subtle" data-aos-delay="100">
+    <div class="feature-box" data-aos-delay="100">
       <i class="fab fa-canva"></i>
       <h4 class="gradient-text-animated">عند الاشتراك:</h4>
       <ul>
@@ -1935,7 +1879,7 @@
   </div>
 </div>
 
-                <div class="feature-box" data-aos="fade-up-subtle" data-aos-delay="200">
+                <div class="feature-box" data-aos-delay="200">
                     <i class="fas fa-globe"></i>
                     <h4 class="gradient-text-animated">استخدام مواقع احترافية لدعم التصميم</h4>
                     <h4 class="gradient-text-animated" style="margin-top: 15px;">أفضل المواقع لتحسين عروض PowerPoint و Word:</h4>
@@ -1948,7 +1892,7 @@
                         <li>Icons: للحصول على رموز وأيقونات متحركة.</li>
                     </ul>
                 </div>
-                <div class="feature-box" data-aos="fade-up-subtle" data-aos-delay="300">
+                <div class="feature-box" data-aos-delay="300">
                     <i class="fas fa-clock"></i>
                     <h4 class="gradient-text-animated">معلومات الدورة</h4>
                     <ul>
@@ -1967,16 +1911,16 @@
 <!-- Instructor Section -->
 <section id="instructor" class="instructor section-bg-image section-bg-overlay">
     <div class="container">
-        <div class="section-header" data-aos="fade-in">
+        <div class="section-header">
             <h2 class="gradient-text-animated">المدرب</h2>
         </div>
-        <div class="instructor-profile" data-aos="zoom-in-subtle">
+        <div class="instructor-profile">
             <div class="instructor-info">
                 <h3 class="gradient-text-animated">Idan Saleh</h3>
                 <p class="instructor-title">Microsoft Office Trainer | Word & PowerPoint Specialist</p>
 
                 <!-- Instructor Stats -->
-                <div class="instructor-stats" data-aos="fade-up-subtle" data-aos-delay="100">
+                <div class="instructor-stats" data-aos-delay="100">
                     <div class="stat-item">
                         <div class="stat-value counter" data-count="3">0</div>
                         <div class="stat-label">سنوات خبرة</div>
@@ -1992,12 +1936,12 @@
                 </div>
 
                 <p class="instructor-bio">
-                    Idan has over 3 years of experience training individuals and teams on Microsoft Word and PowerPoint <br>
-                    He has trained more than 100 trainees, helping them develop practical skills in document formatting and presentation design
+                    Idan لديه أكثر من 3 سنوات من الخبرة في تدريب الأفراد والفرق على Microsoft Word وPowerPoint.<br>
+                    قام بتدريب أكثر من 100 متدرب، وساعدهم على تطوير مهاراتهم العملية في تنسيق المستندات وتصميم العروض التقديمية.
                 </p>
 
                 <!-- Social Links -->
-                <div class="note"> تواصل مع المدرب على:</div>
+                <div class="note">📌 تواصل مع المدرب على:</div>
                 <div class="survey-social-icons">
                     <a href="https://www.instagram.com/in.19g?igsh=aWVqOTMwZno5dGE1" target="_blank" aria-label="Instagram">
                         <i class="fab fa-instagram"></i>
@@ -2020,11 +1964,11 @@
 <!-- Pricing Section -->
 <section id="pricing" class="pricing section-bg-image section-bg-overlay">
     <div class="container">
-        <div class="section-header" data-aos="fade-in">
+        <div class="section-header">
             <h2 class="gradient-text-animated">خطط الاشتراك</h2>
         </div>
         <div class="pricing-plans">
-            <div class="pricing-plan" data-aos="fade-up-subtle">
+            <div class="pricing-plan">
                 <div class="discount-badge">خصم 58%</div>
                 <div class="plan-header">
                     <h3 class="gradient-text-animated">الخطة الأساسية</h3>
@@ -2052,9 +1996,9 @@
 
 <!-- Survey Section -->
 <section id="survey" class="survey-section section-bg-image section-bg-overlay">
-    <div class="survey-container" data-aos="zoom-in-subtle">
+    <div class="survey-container">
         <h2 class="gradient-text-animated">استبيان التسجيل</h2>
-        <form id="surveyForm" action="https://formspree.io/f/movdzbbv" method="POST" data-aos="fade-up-subtle">
+        <form id="surveyForm" action="https://formspree.io/f/movdzbbv" method="POST">
             <div class="input-group">
                 <label for="fullname">الاسم الثلاثي</label>
                 <input type="text" id="fullname" name="fullname" required placeholder="أدخل اسمك الثلاثي" minlength="3" maxlength="100" pattern="^[\p{L}\p{M}\s\'-]+$">
@@ -2111,7 +2055,7 @@
             </div>
 
             <!-- Note and Social Icons -->
-            <div class="note"> تسجيلك يعني موافقتك على الشروط والأحكام الخاصة بنا وتواصل معنا على :</div>
+            <div class="note"> عند التسجيل تواصل معنا على الإنستغرام أو التليجرام:</div>
             <div class="survey-social-icons">
                 <a href="https://www.instagram.com/dmx_iq?igsh=cWFpbGxvNWdldzd2" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="https://t.me/in_21g" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
@@ -2125,10 +2069,10 @@
 <!-- About Us Section -->
 <section id="about-us" class="about-section section-bg-image section-bg-overlay">
     <div class="container">
-        <div class="section-header" data-aos="fade-in">
+        <div class="section-header">
             <h2 class="gradient-text-animated">من نحن</h2>
         </div>
-        <div class="content-box" data-aos="fade-up-subtle">
+        <div class="content-box">
             <p>
                 في DMX، نؤمن بأن إتقان الأدوات الرقمية هو مفتاح التميز في العصر الحديث. مهمتنا هي تمكين الأفراد والمؤسسات من خلال تقديم دورات تدريبية عالية الجودة تركز على المهارات العملية والتطبيقية.
             </p>
@@ -2145,10 +2089,10 @@
 <!-- Terms Section -->
 <section id="terms" class="terms-section section-bg-image section-bg-overlay">
     <div class="container">
-        <div class="section-header" data-aos="fade-in">
+        <div class="section-header">
             <h2 class="gradient-text-animated">الشروط والأحكام</h2>
         </div>
-        <div class="content-box" data-aos="fade-up-subtle">
+        <div class="content-box">
             <h3>1. مقدمة</h3>
 <p>مرحبًا بك في دورة DMX لتعلم PowerPoint و Word. تحدد هذه الشروط والأحكام ("الشروط") القواعد التي تحكم استخدامك لموقعنا الإلكتروني ("الموقع") والمحتوى التعليمي المقدم ("الدورة"). يُعتبر وصولك إلى الموقع أو تسجيلك في الدورة موافقة صريحة منك على الالتزام بهذه الشروط وسياسة الخصوصية الخاصة بنا.</p>
 
@@ -2188,12 +2132,63 @@
     </div>
 </section>
 
-<!-- Divider -->
-<hr class="divider-section">
-
 <!-- Footer -->
+<style>
+    footer a {
+        color: #fff !important;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+        color: #facc15 !important;
+    }
+
+    .dmx-title {
+        font-size: 2rem;
+        color: #fff;
+        margin-bottom: 0.2rem;
+        display: inline-block;
+    }
+
+    .dmx-subtitle {
+        font-size: 1.1rem;
+        color: #fff;
+        margin-top: 0.2rem;
+        letter-spacing: 0.5px;
+    }
+
+    .copy-number {
+        cursor: pointer;
+        font-size: 1.1rem;
+        color: #fff;
+        margin-bottom: 0.5rem;
+        transition: color 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .copy-number:hover {
+        color: #facc15 !important;
+    }
+
+    .copy-number i {
+        pointer-events: none; /* ما يسمح بالضغط على الأيقونة */
+    }
+</style>
+
+<script>
+    function copyPhoneNumber(number) {
+        navigator.clipboard.writeText(number).then(() => {
+            window.location.href = `tel:${number}`;
+        });
+    }
+</script>
+
 <footer>
     <div class="bubbles-container">
+        <!-- فقاعات الخلفية -->
         <div class="bubble"></div>
         <div class="bubble"></div>
         <div class="bubble"></div>
@@ -2207,45 +2202,69 @@
         <div class="bubble"></div>
         <div class="bubble"></div>
     </div>
+
     <div class="container">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <h2><a href="#home">DMX</a></h2>
-                <p>نقدم دورات احترافية في مجال تصميم العروض التقديمية وإدارة المستندات</p>
-                <div class="social-icons" style="margin-top: 20px;">
-                    <a href="https://www.instagram.com/dmx_iq?igsh=cWFpbGxvNWdldzd2" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://t.me/in_21g" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-                </div>
+        <div class="footer-content" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 3rem; align-items: flex-start;">
+
+            <!-- DMX + Design Modern -->
+            <div class="footer-dmx" style="flex: 1; min-width: 220px; text-align: center;">
+                <a href="#home" class="dmx-title">DMX</a>
+                <div class="dmx-subtitle">Design Modern</div>
+                <p style="font-size: 1.2rem; margin-top: 1rem; color: #fff;">نقدم دورات احترافية في مجال تصميم العروض التقديمية وإدارة المستندات</p>
             </div>
-            <div class="footer-links">
-                <div class="footer-column">
-                    <h3>روابط سريعة</h3>
-                    <ul>
-            <ul class="nav-menu">
-            <li><a href="#home">الرئيسية</a></li>
-            <li><a href="#modules">المحتوى</a></li>
-            <li><a href="#instructor">المدرب</a></li>
-            <li><a href="#pricing">الأسعار</a></li>
-            <li><a href="#survey">استبيان</a></li>
-            <li><a href="page2.html" class="highlight-link">تصاميم الدورة</a></li>
-        </ul>
-                        <li><a href="#survey">التسجيل</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>معلومات</h3>
-                    <ul>
-                        <li><a href="#about-us">من نحن</a></li>
-                        <li><a href="#terms">الشروط والأحكام</a></li>
-                    </ul>
+
+            <!-- روابط سريعة -->
+            <div class="footer-column" style="flex: 1; min-width: 200px;">
+                <h3 style="font-size: 1.8rem; color: #facc15;">روابط سريعة</h3>
+                <ul style="font-size: 1.1rem; color: #fff; padding: 0; list-style: none;">
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#modules">المحتوى</a></li>
+                    <li><a href="#instructor">المدرب</a></li>
+                    <li><a href="#pricing">خطط الاشتراك</a></li>
+                    <li><a href="#survey">التسجيل</a></li>
+                </ul>
+            </div>
+
+            <!-- معلومات -->
+            <div class="footer-column" style="flex: 1; min-width: 200px;">
+                <h3 style="font-size: 1.8rem; color: #facc15;">معلومات</h3>
+                <ul style="font-size: 1.1rem; color: #fff; padding: 0; list-style: none;">
+                    <li><a href="#about-us">من نحن</a></li>
+                    <li><a href="#terms">الشروط والأحكام</a></li>
+                </ul>
+            </div>
+
+            <!-- العنوان + أرقام + سوشال -->
+            <div class="footer-contact" style="flex: 1; min-width: 220px;">
+                <h3 style="font-size: 1.8rem; color: #facc15;">العنوان</h3>
+                <p style="font-size: 1.1rem; color: #fff;">العراق، صلاح الدين، قضاء سامراء</p>
+                
+                <p class="copy-number" onclick="copyPhoneNumber('07723160196')">
+                    <i class="fas fa-phone-alt"></i> 07723160196
+                </p>
+
+                <p class="copy-number" onclick="copyPhoneNumber('07757111083')">
+                    <i class="fas fa-phone-alt"></i> 07757111083
+                </p>
+
+                <div class="social-icons" style="margin-top: 10px;">
+                    <a href="https://www.instagram.com/dmx_iq?igsh=cWFpbGxvNWdldzd2" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram" style="font-size: 1.5rem;"></i>
+                    </a>
+                    <a href="https://t.me/in_21g" target="_blank" aria-label="Telegram" style="margin-left: 60px;">
+                        <i class="fab fa-telegram" style="font-size: 1.5rem;"></i>
+                    </a>
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
+
+        <!-- أسفل الفوتر -->
+        <div class="footer-bottom" style="text-align: center; margin-top: 3rem; font-size: 1.1rem; color: #fff;">
             <p>© 2025 DMX. جميع الحقوق محفوظة.</p>
         </div>
     </div>
 </footer>
+
 
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
