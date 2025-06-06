@@ -69,7 +69,7 @@
 
         /* Header - Modernized */
         header {
-            background: rgba(20, 28, 42, 0.65);
+            background: rgba(20, 28, 42, 0.65); /* Slightly adjusted glass color and opacity */
             backdrop-filter: blur(25px) saturate(190%);
             -webkit-backdrop-filter: blur(25px) saturate(190%);
             position: fixed;
@@ -77,28 +77,29 @@
             z-index: 1000;
             transition: transform var(--animation-speed-medium) var(--animation-timing), background var(--animation-speed-medium) ease, box-shadow var(--animation-speed-medium) ease;
             transform: translateY(0);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37); /* Enhanced shadow */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.18); /* Subtle border */
         }
 
         header.scrolled {
-             background: rgba(25, 35, 50, 0.8);
+             background: rgba(25, 35, 50, 0.8); /* Darker background on scroll */
              box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
         }
 
         header.hide {
-            transform: translateY(-110%);
+            transform: translateY(-110%); /* Hide completely */
         }
 
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0.8rem 2.5rem;
+            padding: 0.8rem 2.5rem; /* Adjusted padding */
             background: transparent;
             transition: padding var(--animation-speed-medium) ease;
-            max-width: 1300px;
+            max-width: 1300px; /* Slightly wider container for navbar */
             margin: 0 auto;
+            gap: 1rem; /* توزيع متساوي للعناصر */
         }
 
         .logo h1 {
@@ -106,11 +107,11 @@
             font-size: 2.3rem; /* تكبير حجم اللوجو */
             transition: transform var(--animation-speed-fast) ease, text-shadow var(--animation-speed-fast) ease;
             font-weight: 700;
-            letter-spacing: -1px;
+            letter-spacing: -1px; /* Tighter spacing */
         }
 
         .logo h1:hover {
-            transform: scale(1.03) rotate(-2deg);
+            transform: scale(1.03) rotate(-2deg); /* Subtle hover */
             text-shadow: 0 0 20px var(--accent-color);
         }
 
@@ -121,12 +122,12 @@
 
         .social-header {
             display: flex;
-            gap: 1.2rem;
+            gap: 1.2rem; /* Increased gap */
             margin-left: 2rem;
         }
 
         .social-header a {
-            color: rgba(249, 250, 251, 0.8);
+            color: rgba(249, 250, 251, 0.8); /* Slightly transparent */
             font-size: 1.2rem;
             transition: transform var(--animation-speed-fast) ease, color var(--animation-speed-fast) ease;
         }
@@ -139,43 +140,47 @@
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 1.8rem;
+            gap: 1.5rem; /* تعديل المسافات بين عناصر القائمة */
+            justify-content: center; /* توزيع متساوي */
+            flex-wrap: wrap; /* للتجاوبية على الشاشات الصغيرة */
         }
 
         .nav-menu li a {
-            color: rgba(249, 250, 251, 0.9);
+            color: rgba(249, 250, 251, 0.9); /* Slightly transparent */
             text-decoration: none;
-            font-weight: 600;
-            padding: 0.6rem 0.2rem;
-            transition: color var(--animation-speed-fast) ease, text-shadow var(--animation-speed-medium) ease;
+            font-weight: 700; /* Bolder text as requested */
+            padding: 0.6rem 0.3rem; /* Adjusted padding for underline effect */
+            transition: color var(--animation-speed-fast) ease, text-shadow var(--animation-speed-medium) ease; /* Added text-shadow transition */
             position: relative;
-            font-size: 1.05rem;
-            overflow: visible;
-            background: none;
+            font-size: 1.1rem; /* Consistent font size */
+            overflow: visible; /* Allow underline to show */
+            background: none; /* Remove potential background */
             border-radius: 0;
-            text-shadow: none;
+            text-shadow: none; /* Ensure no shadow initially */
+            letter-spacing: 0.02em; /* Slight letter spacing for better readability */
         }
 
         .nav-menu li a::before {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: -5px; /* Adjusted position */
             left: 0;
             width: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--yellow-color), #fffacd);
+            height: 3px; /* Slightly thicker */
+            /* Use yellow gradient for underline */
+            background: linear-gradient(90deg, var(--yellow-color), #fffacd); /* Yellow gradient (light yellow) */
             transition: width var(--animation-speed-medium) var(--animation-timing);
             border-radius: 2px;
-            box-shadow: 0 0 5px rgba(250, 204, 21, 0.5);
+            box-shadow: 0 0 5px rgba(250, 204, 21, 0.5); /* Add glow to underline */
         }
 
         .nav-menu li a:hover {
-            color: var(--yellow-color);
-            text-shadow: 0 0 10px rgba(250, 204, 21, 0.8);
+            color: var(--yellow-color); /* Yellow color on hover */
+            text-shadow: 0 0 10px rgba(250, 204, 21, 0.8); /* Enhanced yellow glow */
         }
 
         .nav-menu li a:hover::before {
-            width: 100%;
+            width: 100%; /* Animate underline width */
         }
 
         /* Hamburger Menu */
@@ -183,7 +188,7 @@
             display: none;
             cursor: pointer;
             padding: 10px;
-            z-index: 1001;
+            z-index: 1001; /* Ensure it's above mobile menu */
         }
 
         .hamburger span {
@@ -208,18 +213,18 @@
 
         /* Mobile Menu */
         .mobile-menu {
-            display: none;
+            display: none; /* Initially hidden */
             position: fixed;
             top: 0;
-            right: -100%;
+            right: -100%; /* Start off-screen */
             width: 70%;
             max-width: 300px;
             height: 100vh;
-            background: rgba(17, 24, 39, 0.9);
+            background: rgba(17, 24, 39, 0.9); /* Darker glass */
             backdrop-filter: blur(20px) saturate(180%);
             -webkit-backdrop-filter: blur(20px) saturate(180%);
             z-index: 999;
-            padding: 6rem 2rem 2rem;
+            padding: 6rem 2rem 2rem; /* Padding top to avoid header */
             box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
             transition: right var(--animation-speed-medium) var(--animation-timing);
             border-left: 1px solid var(--glass-border);
@@ -228,7 +233,7 @@
         }
 
         .mobile-menu.active {
-            right: 0;
+            right: 0; /* Slide in */
         }
 
         .mobile-menu ul {
@@ -270,7 +275,7 @@
             opacity: 0;
             transform: translateY(20px);
             animation: mobileMenuItemFadeIn var(--animation-speed-medium) ease forwards;
-            animation-delay: 0.4s;
+            animation-delay: 0.4s; /* Delay for social icons */
         }
 
         .mobile-menu .social-icons a {
@@ -379,8 +384,6 @@
             opacity: 0;
             transition: opacity var(--animation-speed-medium) ease;
         }
-        
-
         
         .file-card:hover::before {
             opacity: 1;
@@ -704,15 +707,15 @@
             font-size: 1rem;
         }
 
-        /* Footer */
+        /* Footer - Enhanced Glassy Bubbles */
         footer {
-            background: linear-gradient(160deg, rgba(25, 35, 50, 0.75), rgba(17, 24, 39, 0.85));
-            color: #adb5bd;
+            background: linear-gradient(160deg, rgba(25, 35, 50, 0.75), rgba(17, 24, 39, 0.85)); /* Adjusted gradient */
+            color: #adb5bd; /* Slightly adjusted text color */
             padding: 5rem 20px 2.5rem;
             position: relative;
-            overflow: hidden;
-            border-top: 1px solid rgba(255, 255, 255, 0.12);
-            margin-top: 5rem;
+            overflow: hidden; /* Keep bubbles contained */
+            border-top: 1px solid rgba(255, 255, 255, 0.12); /* Slightly more visible border */
+            margin-top: 5rem; /* More space */
         }
 
         .bubbles-container {
@@ -728,18 +731,19 @@
 
         .bubble {
             position: absolute;
-            bottom: -180px;
-            background: rgba(255, 255, 255, 0.06);
+            bottom: -180px; /* Start further below */
+            background: rgba(255, 255, 255, 0.06); /* More transparent */
             backdrop-filter: blur(6px);
             -webkit-backdrop-filter: blur(6px);
             border-radius: 50%;
             opacity: 0;
             animation: riseGlassy 15s infinite ease-in;
-            box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.15),
-                        0 0 18px rgba(255, 255, 255, 0.08);
+            box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.15), /* Inner glow */
+                        0 0 18px rgba(255, 255, 255, 0.08); /* Outer glow */
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
+        /* More bubbles with varied styles */
         .bubble:nth-child(1)  { width: 65px; height: 65px; left: 10%; animation-duration: 18s; animation-delay: 0s; }
         .bubble:nth-child(2)  { width: 30px; height: 30px; left: 20%; animation-duration: 12s; animation-delay: 1.5s; background: rgba(0, 210, 255, 0.08); }
         .bubble:nth-child(3)  { width: 50px; height: 50px; left: 35%; animation-duration: 22s; animation-delay: 3s; }
@@ -748,6 +752,10 @@
         .bubble:nth-child(6)  { width: 45px; height: 45px; left: 80%; animation-duration: 19s; animation-delay: 4s; background: rgba(58, 123, 213, 0.09); }
         .bubble:nth-child(7)  { width: 90px; height: 90px; left: 90%; animation-duration: 25s; animation-delay: 1s; }
         .bubble:nth-child(8)  { width: 25px; height: 25px; left: 5%;  animation-duration: 14s; animation-delay: 5s; background: rgba(250, 204, 21, 0.06); }
+        .bubble:nth-child(9)  { width: 55px; height: 55px; left: 28%; animation-duration: 17s; animation-delay: 6s; }
+        .bubble:nth-child(10) { width: 40px; height: 40px; left: 55%; animation-duration: 13s; animation-delay: 2s; }
+        .bubble:nth-child(11) { width: 70px; height: 70px; left: 70%; animation-duration: 20s; animation-delay: 3.5s; background: rgba(255, 255, 255, 0.05); }
+        .bubble:nth-child(12) { width: 30px; height: 30px; left: 42%; animation-duration: 10s; animation-delay: 5.5s; }
 
         @keyframes riseGlassy {
             0% {
@@ -755,10 +763,10 @@
                 opacity: 0;
             }
             10% {
-                 opacity: 0.7;
+                 opacity: 0.7; /* Fade in */
             }
             50% {
-                transform: translateY(-60vh) scale(1.1) rotate(180deg) translateX(5vw);
+                transform: translateY(-60vh) scale(1.1) rotate(180deg) translateX(5vw); /* Add horizontal drift */
                 opacity: 0.4;
             }
             90% {
@@ -766,7 +774,7 @@
             }
             100% {
                 transform: translateY(-110vh) scale(0.7) rotate(360deg) translateX(-5vw);
-                opacity: 0;
+                opacity: 0; /* Fade out */
             }
         }
 
@@ -781,6 +789,7 @@
             justify-content: space-between;
             gap: 40px;
             margin-bottom: 3rem;
+            align-items: flex-start; /* محاذاة العناصر من الأعلى */
         }
 
         .footer-logo h2 a {
@@ -798,13 +807,15 @@
 
         .footer-logo p {
             margin-top: 10px;
-            max-width: 300px;
+            max-width: 300px; /* Limit width */
         }
 
         .footer-links {
             display: flex;
             gap: 60px;
             flex-wrap: wrap;
+            justify-content: space-around; /* توزيع متساوي للعناصر */
+            width: 100%; /* على عرض الشاشة كاملاً للأجهزة الصغيرة */
         }
 
         .footer-column h3 {
@@ -869,118 +880,195 @@
             color: var(--accent-color);
         }
 
-        /* AOS Animations */
-        [data-aos="zoom-in-subtle"] {
-            opacity: 0;
-            transform: scale(0.9);
-            transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        /* AOS Overrides & Custom Animations */
+        [data-aos] {
+            transition-property: transform, opacity, filter; /* Add filter */
         }
-        
-        [data-aos="zoom-in-subtle"].aos-animate {
-            opacity: 1;
-            transform: scale(1);
-        }
-        
+
+        /* Enhanced Scroll Animations */
         [data-aos="fade-up-subtle"] {
-            transform: translateY(40px);
+            transform: translateY(50px);
             opacity: 0;
             transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+            transition-duration: 1000ms;
         }
-        
         [data-aos="fade-up-subtle"].aos-animate {
             transform: translateY(0);
             opacity: 1;
         }
 
-        /* Responsive Styles */
+        [data-aos="zoom-in-subtle"] {
+            transform: scale(0.85);
+            opacity: 0;
+            transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition-duration: 1200ms;
+        }
+        [data-aos="zoom-in-subtle"].aos-animate {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        [data-aos="slide-left-subtle"] {
+            transform: translateX(60px);
+            opacity: 0;
+            transition-duration: 1000ms;
+        }
+        [data-aos="slide-left-subtle"].aos-animate {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        [data-aos="slide-right-subtle"] {
+            transform: translateX(-60px);
+            opacity: 0;
+            transition-duration: 1000ms;
+        }
+        [data-aos="slide-right-subtle"].aos-animate {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        /* Responsive */
         @media (max-width: 992px) {
             .nav-menu {
-                display: none;
+                gap: 1rem;
             }
-            
-            .hamburger {
-                display: block;
+            .hero h1 {
+                font-size: 2.5rem;
             }
-            
-            .mobile-menu {
-                display: block;
+            .module-content {
+                 grid-template-columns: 1fr; /* Stack on medium screens */
             }
-            
-            .social-header {
-                margin-left: auto;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            section {
-                padding: 4rem 0;
-            }
-            
-            .section-header h2 {
-                font-size: 1.8rem;
-            }
-            
-            .file-grid {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-                gap: 1.5rem;
-            }
-            
-            .benefits-list {
-                grid-template-columns: 1fr;
-            }
-            
-            .main-download-box {
-                padding: 1.5rem;
-            }
-            
-            .main-download-box h2 {
-                font-size: 1.5rem;
-            }
-            
-            .footer-content {
-                flex-direction: column;
-                gap: 2rem;
-            }
-            
             .footer-links {
                 gap: 2rem;
             }
+            .instructor-stats {
+                gap: 1rem;
+            }
         }
-        
-        @media (max-width: 480px) {
-            body {
-                padding: 0;
-            }
-            
+
+        @media (max-width: 768px) {
             .navbar {
-                padding: 0.8rem 1rem;
+                padding: 1rem;
+                justify-content: space-between;
+                flex-wrap: wrap;
             }
-            
+            .nav-menu, .social-header {
+                display: none;
+            }
+            .hamburger {
+                display: block;
+            }
+            .mobile-menu {
+                 display: block; /* Enable mobile menu display logic */
+            }
+            .hero-content {
+                padding: 2rem;
+                margin-top: 70px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
+            }
+            .btn {
+                padding: 12px 30px;
+            }
+            .footer-content, .footer-links {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+                align-items: center;
+            }
+            .footer-logo {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .footer-logo p {
+                margin: 10px auto 0;
+            }
+            .footer-column {
+                width: 100%;
+                text-align: center;
+            }
+            .survey-container {
+                padding: 2rem;
+                width: 95%;
+            }
+            .pricing-plans {
+                flex-direction: column;
+                align-items: center;
+            }
+            .pricing-plan {
+                max-width: 90%;
+            }
+            .instructor-stats {
+                flex-direction: column;
+                align-items: center;
+            }
+            .stat-item {
+                width: 80%;
+                min-width: auto;
+            }
+            .content-box ul li {
+                 padding-right: 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            section {
+                padding: 3rem 0;
+            }
+            .hero {
+                min-height: 70vh;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .btn {
+                padding: 10px 25px;
+                font-size: 0.9rem;
+            }
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+            .module, .feature-box, /* .instructor-profile, */ .survey-container, .content-box, .pricing-plan {
+                padding: 1.5rem;
+                border-radius: 12px; /* Slightly smaller radius, instructor excluded */
+            }
+            .skill-levels {
+                flex-direction: column;
+                align-items: stretch; /* Full width */
+            }
+            .radio-group {
+                 flex-direction: column;
+                 align-items: flex-start;
+            }
+            .footer-column h3 {
+                 font-size: 1.1rem;
+            }
+            .stat-value {
+                 font-size: 2.2rem;
+            }
             .logo h1 {
                 font-size: 1.5rem;
             }
-            
-            .social-header {
-                gap: 0.8rem;
+            .social-header a i {
+                font-size: 1.3rem !important;
             }
-            
-            .file-grid {
-                grid-template-columns: 1fr;
-                max-width: 300px;
-                margin: 0 auto;
+            .footer-logo h2 a {
+                font-size: 1.5rem;
             }
-            
-            .main-download-btn {
-                padding: 0.8rem 1.5rem;
-                font-size: 1rem;
+            .price {
+                 font-size: 2.5rem;
             }
-            
-            .section-header p {
-                font-size: 1rem;
-            }
-            
-            .benefits-section {
-                padding: 1.5rem;
+            .old-price {
+                 font-size: 1rem;
             }
         }
     </style>
@@ -992,37 +1080,37 @@
         <div class="logo">
             <h1><a href="index.html">DMX</a></h1>
         </div>
-        <div class="nav-return-home" style="margin-left: auto; margin-right: 2rem;">
-            <a href="index.html" style="color: var(--yellow-color); text-decoration: none; font-weight: 600; font-size: 1.1rem;"><i class="fas fa-arrow-left" style="margin-left: 8px;"></i> العودة للرئيسية</a>
-        </div>
         <div class="social-header">
             <a href="https://www.instagram.com/dmx_iq?igsh=cWFpbGxvNWdldzd2" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             <a href="https://t.me/in_21g" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
         </div>
         <ul class="nav-menu">
-            <li><a href="index.html">الرئيسية</a></li>
-            <li><a href="#course-samples" class="active">تصاميم الدورة</a></li>
-            <li><a href="#benefits">فوائد التصاميم</a></li>
+            <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+            <li><a href="#course-samples" class="active"><i class="fas fa-layer-group"></i> تصاميم الدورة</a></li>
+            <li><a href="#benefits"><i class="fas fa-star"></i> فوائد التصاميم</a></li>
+            <li><a href="index.html#survey"><i class="fas fa-edit"></i> التسجيل</a></li>
         </ul>
-        <div class="hamburger">
+        <div class="hamburger" id="hamburger">
             <span></span>
             <span></span>
             <span></span>
         </div>
     </nav>
-</header>
 
-<div class="mobile-menu">
-    <ul>
-        <li><a href="index.html">الرئيسية</a></li>
-        <li><a href="#course-samples">تصاميم الدورة</a></li>
-        <li><a href="#benefits">فوائد التصاميم</a></li>
-    </ul>
-    <div class="social-icons">
-        <a href="https://www.instagram.com/dmx_iq?igsh=cWFpbGxvNWdldzd2" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://t.me/in_21g" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="social-icons" style="margin-bottom: 2rem; margin-top: 0;">
+            <a href="https://www.instagram.com/dmx_iq?igsh=cWFpbGxvNWdldzd2" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://t.me/in_21g" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+        </div>
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+            <li><a href="#course-samples"><i class="fas fa-layer-group"></i> تصاميم الدورة</a></li>
+            <li><a href="#benefits"><i class="fas fa-star"></i> فوائد التصاميم</a></li>
+            <li><a href="index.html#survey"><i class="fas fa-edit"></i> التسجيل</a></li>
+        </ul>
     </div>
-</div>
+</header>
 
 <!-- Course Samples Section -->
 <section id="course-samples" class="section-bg-image section-bg-overlay">
@@ -1042,7 +1130,6 @@
             <div class="content-wrapper">
                 <h2>تحميل جميع التصاميم دفعة واحدة</h2>
                 <p>احصل على أكثر من 200+ تصميم باوربوينت احترافي عند الأشتراك </p>
-
             </div>
         </div>
         
@@ -1265,78 +1352,134 @@
         <div class="bubble"></div>
         <div class="bubble"></div>
         <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
     </div>
     <div class="container">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <h2><a href="index.html">DMX</a></h2>
-                <p>نقدم دورات احترافية في برامج Microsoft Office لمساعدتك على تطوير مهاراتك وتحسين إنتاجيتك.</p>
+        <div class="footer-content" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 3rem; align-items: flex-start;">
+
+            <!-- DMX + Design Modern -->
+            <div class="footer-dmx" style="flex: 1; min-width: 220px; text-align: center;">
+                <a href="index.html" class="dmx-title">DMX</a>
+                <div class="dmx-subtitle">Design Modern</div>
+                <p style="font-size: 1.2rem; margin-top: 1rem; color: #fff;">نقدم دورات احترافية في مجال تصميم العروض التقديمية وإدارة المستندات</p>
             </div>
-            <div class="footer-links">
-                <div class="footer-column">
-                    <h3>روابط سريعة</h3>
-                    <ul>
-                        <li><a href="index.html">الرئيسية</a></li>
-                        <li><a href="#course-samples">تصاميم الدورة</a></li>
-                        <li><a href="#benefits">فوائد التصاميم</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>تواصل معنا</h3>
-                    <ul>
-                        <li><a href="https://www.instagram.com/dmx_iq?igsh=cWFpbGxvNWdldzd2" target="_blank">انستغرام</a></li>
-                        <li><a href="https://t.me/in_21g" target="_blank">تيليجرام</a></li>
-                    </ul>
+
+            <!-- روابط سريعة -->
+            <div class="footer-column" style="flex: 1; min-width: 200px;">
+                <h3 style="font-size: 1.2rem; color: #facc15;">روابط سريعة</h3>
+                <ul style="font-size: 1.2rem; color: #fff; padding: 0; list-style: none;">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="#course-samples">تصاميم الدورة</a></li>
+                    <li><a href="#benefits">فوائد التصاميم</a></li>
+                    <li><a href="index.html#survey">التسجيل</a></li>
+                </ul>
+            </div>
+
+            <!-- معلومات -->
+            <div class="footer-column" style="flex: 1; min-width: 200px;">
+                <h3 style="font-size: 1.2rem; color: #facc15;">معلومات</h3>
+                <ul style="font-size: 1.2rem; color: #fff; padding: 0; list-style: none;">
+                    <li><a href="index.html#about-us">من نحن</a></li>
+                    <li><a href="index.html#terms">الشروط والأحكام</a></li>
+                </ul>
+            </div>
+
+            <!-- العنوان + أرقام + سوشال -->
+            <div class="footer-contact" style="flex: 1; min-width: 220px;">
+                <h3 style="font-size: 1.2rem; color: #facc15;">العنوان</h3>
+                <p style="font-size: 1.2rem; color: #fff;">العراق، صلاح الدين، قضاء سامراء</p>
+               <h3 style="font-size: 1.2rem; color: #facc15;">او تواصل معنا على</h3>
+
+                <div class="social-icons" style="margin-top: 10px;">
+                    <a href="https://www.instagram.com/dmx_iq?igsh=cWFpbGxvNWdldzd2" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram" style="font-size: 1.5rem;"></i>
+                    </a>
+                    <a href="https://t.me/in_21g" target="_blank" aria-label="Telegram" style="margin-right: 60px;">
+                        <i class="fab fa-telegram" style="font-size: 1.5rem;"></i>
+                    </a>
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>جميع الحقوق محفوظة &copy; 2025 DMX</p>
+
+        <!-- أسفل الفوتر -->
+        <div class="footer-bottom" style="text-align: center; margin-top: 3rem; font-size: 1.1rem; color: #fff;">
+            <p>© 2025 DMX. جميع الحقوق محفوظة.</p>
         </div>
     </div>
 </footer>
 
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
-    // Initialize AOS
+    // Initialize AOS (Animate On Scroll) - تم تعديل الانتقالات لتكون scroll in/out فقط
     AOS.init({
-        duration: 800,
-        once: true,
-        offset: 100
+        duration: 1000, // Increased duration for smoother animations
+        easing: 'ease-in-out-cubic', // More sophisticated easing
+        once: false, // Animate every time element scrolls into view
+        offset: 80, // Trigger animations a bit earlier
+        debounceDelay: 50, // Frequent scroll events
+        throttleDelay: 99, // Handle scroll events efficiently
+        mirror: true, // Whether elements should animate out while scrolling past them
+        anchorPlacement: 'top-bottom', // Defines which position of the element regarding to window should trigger the animation
+        disable: 'phone', // Enable on all devices
+        startEvent: 'DOMContentLoaded', // Name of the event dispatched on the document, that AOS should initialize on
+        animatedClassName: 'aos-animate', // Class applied on animation
+        initClassName: 'aos-init', // Class applied after initialization
     });
 
-    // Header scroll effect
-    const header = document.querySelector('header');
-    let lastScrollY = 0;
-
-    window.addEventListener('scroll', () => {
-        const currentScrollY = window.scrollY;
-        
-        if (currentScrollY > 100) {
-            header.classList.add('scrolled');
-            
-            if (currentScrollY > lastScrollY && currentScrollY > 300) {
-                header.classList.add('hide');
-            } else {
-                header.classList.remove('hide');
-            }
-        } else {
-            header.classList.remove('scrolled');
-        }
-        
-        lastScrollY = currentScrollY;
-    });
-
-    // Mobile menu toggle
-    const hamburger = document.querySelector('.hamburger');
-    const mobileMenu = document.querySelector('.mobile-menu');
+    // Hamburger Menu Toggle
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const body = document.body;
 
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
         mobileMenu.classList.toggle('active');
+        body.classList.toggle('no-scroll'); // Prevent scrolling when menu is open
     });
+
+    // Close mobile menu when a link is clicked
+    mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            body.classList.remove('no-scroll');
+        });
+    });
+
+    // Hide Header on Scroll Down
+    let lastScrollTop = 0;
+    const header = document.querySelector('header');
+    const scrollThreshold = 100; // Pixels to scroll before hiding header
+
+    window.addEventListener('scroll', () => {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
+            // Scroll Down
+            header.classList.add('hide');
+            // Close mobile menu if open when scrolling down
+            if (mobileMenu.classList.contains('active')) {
+                 hamburger.classList.remove('active');
+                 mobileMenu.classList.remove('active');
+                 body.classList.remove('no-scroll');
+            }
+        } else if (scrollTop < lastScrollTop || scrollTop <= scrollThreshold) {
+            // Scroll Up or near top
+            header.classList.remove('hide');
+        }
+
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }, { passive: true }); // Improve scroll performance
+
+    function copyPhoneNumber(number) {
+        navigator.clipboard.writeText(number).then(() => {
+            window.location.href = `tel:${number}`;
+        });
+    }
 </script>
 </body>
 </html>
